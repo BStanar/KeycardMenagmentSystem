@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:KeycardMenagmentSystem"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="NavigationDockPanel" TargetType="DockPanel">
+            <Setter Property="Background" Value="Gray"/>
+        </Style>
+        <Style x:Key="NavigationButtonClicked" TargetType="Button">
+            <Setter Property="Background" Value="LightSlateGray"/>
+        </Style>
     </Application.Resources>
 </Application>
