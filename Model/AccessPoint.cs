@@ -8,6 +8,20 @@ namespace KeycardMenagmentSystem.Model
 {
     internal class AccessPoint
     {
+        private int _accesPointID;
+        private string _name;
+        private List<Log> _accessPointLog=new List<Log>();
+        
+        public int AccesPointID {  get { return _accesPointID; } set { _accesPointID = value; } }
+        public string Name { get { return _name; } set { _name = value; } } 
+        public AccessPoint(int accesPointId, string name ) {
+            AccesPointID = accesPointId;
+            Name = name;
+        }
 
+        public void AddAccessPointLog() {
+            Log log = new Log();
+            _accessPointLog.Add(new Log());
+        }
     }
 }
