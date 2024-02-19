@@ -8,5 +8,6 @@ namespace KeycardMenagmentSystem.View
 {
     internal class KeyCard
     {
+
     }
 }
