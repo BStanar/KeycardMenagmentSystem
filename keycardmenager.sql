@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 12:05 PM
+-- Generation Time: Feb 19, 2024 at 01:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,14 @@ CREATE TABLE `accesspoint` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `accesspoint`
+--
+
+INSERT INTO `accesspoint` (`id`, `name`) VALUES
+(1, 'Main Entrance'),
+(2, 'Back Entrance');
+
 -- --------------------------------------------------------
 
 --
@@ -42,6 +50,18 @@ CREATE TABLE `accesspoint_keycard` (
   `accesspoint_id` int(11) NOT NULL,
   `keycard_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `accesspoint_keycard`
+--
+
+INSERT INTO `accesspoint_keycard` (`accesspoint_id`, `keycard_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(2, 3);
 
 -- --------------------------------------------------------
 
@@ -54,6 +74,15 @@ CREATE TABLE `keycard` (
   `serial_number` varchar(255) NOT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keycard`
+--
+
+INSERT INTO `keycard` (`id`, `serial_number`, `user_id`) VALUES
+(1, 'KC1001', 1),
+(2, 'KC1002', 2),
+(3, 'KC1003', 3);
 
 -- --------------------------------------------------------
 
@@ -70,6 +99,15 @@ CREATE TABLE `user` (
   `lastname` varchar(255) NOT NULL,
   `date_of_employment` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`) VALUES
+(1, 'jdoe', 'jdoe@example.com', 'password123', 'John', 'Doe', '2020-01-01'),
+(2, 'asmith', 'asmith@example.com', 'password123', 'Alice', 'Smith', '2020-02-01'),
+(3, 'bjones', 'bjones@example.com', 'password123', 'Bob', 'Jones', '2020-03-01');
 
 --
 -- Indexes for dumped tables
@@ -109,19 +147,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accesspoint`
 --
 ALTER TABLE `accesspoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `keycard`
 --
 ALTER TABLE `keycard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
