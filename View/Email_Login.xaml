@@ -10,17 +10,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
         Title="Login" Height="350" Width="525">
         <Grid>
-            <TextBlock Height="50" HorizontalAlignment="Center" Margin="24,48,0,0" Name="textBlockHeading" VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5">  
-            Note: Please login here to view the features of this site.
-            </TextBlock>
-            <Grid HorizontalAlignment="Center" Width="316">
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="58,115,0,0" Name="textBlock1" Text="Email" VerticalAlignment="Top" Width="34" />
-                <TextBlock Height="23" HorizontalAlignment="Left" Margin="53,168,0,0" Name="textBlock2" Text="Password" VerticalAlignment="Top" Width="60" />
-                <TextBox Height="23" HorizontalAlignment="Left" Margin="118,115,0,0" x:Name="textBoxEmail" VerticalAlignment="Top" Width="197" />
-                <PasswordBox Height="23" HorizontalAlignment="Left" Margin="118,168,0,0" x:Name="passwordBox" VerticalAlignment="Top" Width="197" />
-                <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="102,225,0,0" Name="button1" VerticalAlignment="Top" Width="140" Click="LogIn" />
-                <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="118,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
-            </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="/View/logo_skylinecommunications_0.png" HorizontalAlignment="Left" Width="100"/>
+            <TextBlock Grid.Row="1" Text="Welcome" FontSize="30" Foreground="DarkBlue" HorizontalAlignment="Center" />
+            <TextBlock Text="Username/e - mail adress/card number" Grid.Row="2" HorizontalAlignment="Center" FontSize="14" Margin="25"/>
+            <TextBox Grid.Row="3" Width="300" HorizontalAlignment="Center" Height="25" x:Name="loginCred"/>
+            <TextBlock Text="Password" Grid.Row="4" HorizontalAlignment="Center" FontSize="14" Margin="10"/>
+            <PasswordBox Grid.Row="5" Width="300" HorizontalAlignment="Center" Height="25" x:Name="loginPasswordCred"/>
+            <Button Grid.Row="6" Content="Login" Foreground="White" Background="DarkBlue" FontSize="20" Padding="5" 
+                    HorizontalAlignment="Center" Margin="20" />
         </Grid>
     </Window>
 </UserControl>
