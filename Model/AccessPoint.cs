@@ -19,9 +19,5 @@ namespace KeycardMenagmentSystem.Model
             Name = name;
         }
 
-        public void AddAccessPointLog() {
-            Log log = new Log();
-            _accessPointLog.Add(new Log());
-        }
     }
 }
