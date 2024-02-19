@@ -21,10 +21,6 @@ namespace KeycardMenagmentSystem.View
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
-            string email = textBoxEmail.Text;
-            string password = passwordBox.Password;
-
-            
         }
     }
 }
