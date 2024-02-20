@@ -38,6 +38,8 @@
             Foreground="Gray"
             Text="PASSWORD" />
 
+            <components:BindablePasswordBox></components:BindablePasswordBox>
+
             <Button Margin="0,25,0,0" Padding="10"
             Background="#4285F4"
             Command="{Binding LoginCommand}"
