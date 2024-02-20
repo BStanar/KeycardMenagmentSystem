@@ -28,11 +28,11 @@ namespace KeycardMenagmentSystem.Model
 
         public static void PopulateDummyData()
         {
-            Employee employee1 = new Employee(1, "Doe", "john@example.com", "John", "password123", "johndoe", DateTime.Now);
-            Employee employee2 = new Employee(2, "Smith", "jane@example.com", "Jane", "password456", "janesmith", DateTime.Now);
+            Users employee1 = new Users(1, "Doe", "john@example.com", "John", "password123", "johndoe", DateTime.Now,"Employee");
+            Users employee2 = new Users(2, "Smith", "jane@example.com", "Jane", "password456", "janesmith", DateTime.Now, "Employee");
 
-            Keycard keycard1 = new Keycard(1, "ABC123", employee1);
-            Keycard keycard2 = new Keycard(2, "DEF456", employee2);
+            Keycard keycard1 = new Keycard(1, "ABC123", employee1.ID);
+            Keycard keycard2 = new Keycard(2, "DEF456", employee2.ID);
             
 
            
@@ -43,15 +43,10 @@ namespace KeycardMenagmentSystem.Model
             
         }
 
-        public ObservableCollection<Keycard> FindByEmployeeName(string Name)
+        public void FindByEmployeeName(string Name)
         {
-            ObservableCollection<Keycard> CardsByName = new ObservableCollection<Keycard>() { };
-
-            foreach(var card in _DatabaseKeyCards)
-            {
-                if(card.Employee.FirstName.Contains(Name)) CardsByName.Add(card);
-            }
-            return CardsByName;
+            
+           
 
         }
 

@@ -15,7 +15,7 @@ namespace KeycardMenagmentSystem.Model
        
         public int KeycardID {  get { return _keycardID; } set { _keycardID = value; } }
         public string SerialCode { get { return _serialCode;} set { _serialCode = value; } }
-        public int UserId { get{return _userId} set { _userId = value; } }
+        public int UserId { get{ return _userId; } set { _userId = value; } }
 
         public Keycard(int keycardID, string serialCode, int idUser)
         {

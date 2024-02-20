@@ -37,8 +37,6 @@ namespace KeycardMenagmentSystem.Model
             get { return _startOfEmployment; }
         }
 
-        
-        /*Konstruktor za emplyee*/
         public Users(int id, string username, string email, string password, string firstName, string lastName, DateTime startOfEmployment, string role)
         {
             FirstName = firstName;

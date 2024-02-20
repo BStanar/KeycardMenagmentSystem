@@ -11,7 +11,7 @@ namespace KeycardMenagmentSystem.Services
     class AuthenticationService:IAuthenticationService
     {
         private string connectionString = "server=127.0.0.1;uid=root;database=keycardmenager;";
-        private Users user;
+        private Model.Users user;
 
         public async Task<Users> Login(string username, string password)
         {
