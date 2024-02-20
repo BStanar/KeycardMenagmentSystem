@@ -6,52 +6,55 @@
              xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <ListView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <ListView x:Name="List" ItemsSource="{Binding Keycards}" Grid.Column="3">
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
+                <Style TargetType="ListViewItem" >
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Card ID">
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Width="200" Header="Card ID">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text=""/>
+                                <TextBlock Text="{Binding KeycardID}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Serial number">
+                    <GridViewColumn Width="200" Header="Serial number">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text=""/>
+                                <TextBlock Text="{Binding SerialCode}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Employee">
+                    <GridViewColumn Width="200" Header="Employee">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="20 0 0 0" Text=""/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Status">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Padding="20 0 0 0" Text=""/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Number of attempts">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Padding="20 0 0 0" Text=""/>
+                                <TextBlock Text="{Binding Employee.FirstName}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-        </ListView>  
+        </ListView>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Edit" Click="EditButton_Click" Margin="5"/>
+            <Button Content="Delete" Click="DeleteButton_Click" Margin="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

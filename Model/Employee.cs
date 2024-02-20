@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Model
 {
-    internal class Employee : Person
+    public class Employee : Person
     {
         private string _department;
         
@@ -15,8 +15,10 @@ namespace KeycardMenagmentSystem.Model
             get { return _department; }
             set { _department = value; }
         }
-        public Employee(int id, string lastName, string email, string firstName, string password, string username, DateTime startOfEmployment) : base(id, lastName, email, firstName, password, username, startOfEmployment)
+        public Employee(int id, string lastName, string email, string firstName, string password, string username,
+            DateTime startOfEmployment) : base(id, lastName, email, firstName, password, username, startOfEmployment)
         {
+            
 
         }
     }

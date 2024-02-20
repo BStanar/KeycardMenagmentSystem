@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Model
 {
-    internal class Keycard
+    public class Keycard
     {
-        private int _keycardID;
-        private string _serialCode;
-        
-        private Employee _employee;
+        public int KeycardID { get; set; }
+        public string SerialCode { get; set; }
+        public Employee Employee { get; set; }
 
-        public int KeycardID {  get { return _keycardID; } set { _keycardID = value; } }
-        public string SerialCode { get { return _serialCode;} set { _serialCode = value; } }
-        public Employee Employee { get { return _employee; } }
+        public Keycard(int keycardID, string serialCode, Employee emp)
+        {
+            KeycardID = keycardID;
+            SerialCode = serialCode;
+            Employee = emp;
+        }
+        
     }
 }

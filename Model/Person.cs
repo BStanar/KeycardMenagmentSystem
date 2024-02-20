@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Model
 {
-    internal class Person
+    public class Person
     {
         private int _id;
         private string _lastName;
