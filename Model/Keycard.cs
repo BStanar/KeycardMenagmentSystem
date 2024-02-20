@@ -11,7 +11,7 @@ namespace KeycardMenagmentSystem.Model
         private int _keycardID;
         private string _serialCode;
         private int _userId;
-        private bool _activated
+        private bool _activated;
 
        
         public int KeycardID {  get { return _keycardID; } set { _keycardID = value; } }
