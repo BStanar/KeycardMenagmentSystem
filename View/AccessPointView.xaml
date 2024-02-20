@@ -1,23 +1,27 @@
-﻿<Window x:Class="KeycardMenagmentSystem.View.AccessPointView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KeycardMenagmentSystem.View" xmlns:viewmodel="clr-namespace:KeycardMenagmentSystem.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AccessPointListingViewModel}"
-        mc:Ignorable="d"
-        Title="AccessPointView" Height="450" Width="800">
-    <Grid>
-        <ItemsControl ItemsSource="{Binding AccessPoints}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="10">
-                        <StackPanel>
-                            <TextBlock Text="{Binding AccessPointID}"/>
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </Grid>
-</Window>
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.AccessPointView"
+			xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			xmlns:local="clr-namespace:KeycardMenagmentSystem.View" xmlns:viewmodel="clr-namespace:KeycardMenagmentSystem.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AccessPointListingViewModel}"
+			mc:Ignorable="d" >
+	<Grid>
+		<ItemsControl ItemsSource="{Binding AccessPoints}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="10">
+						<StackPanel>
+							<TextBlock Text="{Binding AccessPointID}"/>
+							<TextBlock Text="{Binding Name}"/>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel> 
+		</ItemsControl>
+	</Grid>
+</UserControl>

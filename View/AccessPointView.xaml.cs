@@ -17,7 +17,7 @@ namespace KeycardMenagmentSystem.View
     /// <summary>
     /// Interaction logic for AccessPointView.xaml
     /// </summary>
-    public partial class AccessPointView : Window
+    public partial class AccessPointView : UserControl
     {
         public AccessPointView()
         {
