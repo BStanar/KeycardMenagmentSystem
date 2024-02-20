@@ -8,16 +8,20 @@ namespace KeycardMenagmentSystem.Model
 {
     public class Keycard
     {
-        public int KeycardID { get; set; }
-        public string SerialCode { get; set; }
-        public Employee Employee { get; set; }
+        private int _keycardID;
+        private string _serialCode;
+        private int _userId;
 
-        public Keycard(int keycardID, string serialCode, Employee emp)
+       
+        public int KeycardID {  get { return _keycardID; } set { _keycardID = value; } }
+        public string SerialCode { get { return _serialCode;} set { _serialCode = value; } }
+        public int UserId { get{return _userId} set { _userId = value; } }
+
+        public Keycard(int keycardID, string serialCode, int idUser)
         {
             KeycardID = keycardID;
             SerialCode = serialCode;
-            Employee = emp;
+            _userId = idUser;
         }
-        
     }
 }

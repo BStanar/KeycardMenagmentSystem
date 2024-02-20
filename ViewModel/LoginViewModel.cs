@@ -12,7 +12,7 @@ namespace KeycardMenagmentSystem.ViewModel
     public class LoginViewModel : ViewModelBase
     {
         private string _username;
-        private readonly string _password;
+        private string _password;
         public string Username
         {
             get
@@ -33,7 +33,7 @@ namespace KeycardMenagmentSystem.ViewModel
             }
             set
             {
-                _username = value;
+                _password = value;
                 OnPropertyChanged(nameof(Password));
             }
         }
@@ -65,11 +65,21 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private async Task Login()
         {
-            StatusMessage = "Logging in...";
-
-            await new AuthenticationService().Login(Username,Password);
-
-            StatusMessage = "Successfully logged in.";
+            try
+            {
+                StatusMessage = "Logging in...";
+                Model.Users user = await new AuthenticationService().Login(Username, Password);
+                StatusMessage = $"Login successful. Role: {user.Role}";
+                
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                StatusMessage = "Login failed: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = "An error occurred: " + ex.Message;
+            }
         }
     }
 

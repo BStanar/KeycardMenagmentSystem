@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Model
 {
-    internal class AccessPoint
+    public class AccessPoint
     {
         private int _accesPointID;
         private string _name;
-        private List<Log> _accessPointLog=new List<Log>();
+        private List<Log> _accessPointLog;
         
         public int AccesPointID {  get { return _accesPointID; } set { _accesPointID = value; } }
         public string Name { get { return _name; } set { _name = value; } } 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeycardMenagmentSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace KeycardMenagmentSystem.Services
 {
     public interface IAuthenticationService
     {
-        Task Login(string username, string password);
+        public Task<Users> Login(string username, string password);
     }
 }
