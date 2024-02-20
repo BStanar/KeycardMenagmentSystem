@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2024 at 10:42 AM
+-- Generation Time: Feb 20, 2024 at 03:12 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,17 +72,18 @@ INSERT INTO `accesspoint_keycard` (`accesspoint_id`, `keycard_id`) VALUES
 CREATE TABLE `keycard` (
   `id` int(11) NOT NULL,
   `serial_number` varchar(255) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `activated` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `keycard`
 --
 
-INSERT INTO `keycard` (`id`, `serial_number`, `user_id`) VALUES
-(1, 'KC1001', 1),
-(2, 'KC1002', 2),
-(3, 'KC1003', 3);
+INSERT INTO `keycard` (`id`, `serial_number`, `user_id`, `activated`) VALUES
+(1, 'KC1001', 1, 1),
+(2, 'KC1002', 2, 1),
+(3, 'KC1003', 3, 1);
 
 -- --------------------------------------------------------
 
