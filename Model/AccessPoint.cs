@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Model
 {
-    internal class AccessPoint
+    public class AccessPoint
     {
         private int _accesPointID;
         private string _name;
