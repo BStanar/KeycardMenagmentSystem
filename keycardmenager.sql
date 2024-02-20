@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 01:04 PM
+-- Generation Time: Feb 20, 2024 at 10:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -97,17 +97,18 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `date_of_employment` date NOT NULL
+  `date_of_employment` date NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'Employee'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`) VALUES
-(1, 'jdoe', 'jdoe@example.com', 'password123', 'John', 'Doe', '2020-01-01'),
-(2, 'asmith', 'asmith@example.com', 'password123', 'Alice', 'Smith', '2020-02-01'),
-(3, 'bjones', 'bjones@example.com', 'password123', 'Bob', 'Jones', '2020-03-01');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
+(1, 'jdoe', 'jdoe@example.com', 'password123', 'John', 'Doe', '2020-01-01', 'Manager'),
+(2, 'asmith', 'asmith@example.com', 'password123', 'Alice', 'Smith', '2020-02-01', 'Employee'),
+(3, 'bjones', 'bjones@example.com', 'password123', 'Bob', 'Jones', '2020-03-01', 'Employee');
 
 --
 -- Indexes for dumped tables
