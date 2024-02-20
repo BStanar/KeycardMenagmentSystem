@@ -48,13 +48,18 @@ namespace KeycardMenagmentSystem.Services
                 catch (Exception ex)
                 {
                     // Consider logging the exception
-                    throw new Exception("string"+password, ex);
+                    throw new Exception("string", ex);
                 }
             }
-
+            
             if (!isAuthenticated)
             {
                 throw new UnauthorizedAccessException("Login failed. Please check your credentials.");
+            }
+            else
+            {
+
+                throw new UnauthorizedAccessException("Dobar" );
             }
         }
     }

@@ -38,7 +38,7 @@
             Foreground="Gray"
             Text="PASSWORD" />
 
-            <components:BindablePasswordBox Height="35px"></components:BindablePasswordBox>
+            <components:BindablePasswordBox Password="{Binding Password}" Height="35px"></components:BindablePasswordBox>
 
             <Button Margin="0,25,0,0" Padding="10"
             Background="#4285F4"
