@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KeycardMenagmentSystem.ViewModel
+namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for test.xaml
+    /// Interaction logic for LoginScreen.xaml
     /// </summary>
-    public partial class test : UserControl
+    public partial class LoginScreen : UserControl
     {
-        public test()
+        public LoginScreen()
         {
             InitializeComponent();
         }
