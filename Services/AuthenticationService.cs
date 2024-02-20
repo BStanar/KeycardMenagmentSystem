@@ -11,7 +11,7 @@ namespace KeycardMenagmentSystem.Services
     class AuthenticationService:IAuthenticationService
     {
         private string connectionString = "server=127.0.0.1;uid=root;database=keycardmenager;";
-        
+        private Users user;
 
         public async Task<Users> Login(string username, string password)
         {
@@ -19,9 +19,6 @@ namespace KeycardMenagmentSystem.Services
             await Task.Yield();
 
             bool isAuthenticated = false;
-            string userRole = null;
-            Users user;
-            Keycard keycard;
 
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -50,7 +47,7 @@ namespace KeycardMenagmentSystem.Services
                             isAuthenticated = reader.HasRows;
                             if(isAuthenticated && reader.Read())
                             {
-                                user = new Users(Convert.ToInt32(reader["id"]), reader["username"].ToString(), reader["email"].ToString(), reader["name"].ToString(),
+                                user = new Users(Convert.ToInt32(reader["id"]), reader["username"].ToString(), reader["email"].ToString(), reader["password"].ToString(), reader["name"].ToString(),
                                      reader["lastname"].ToString(), Convert.ToDateTime(reader["date_of_employment"]), reader["role"].ToString());
                             }
                         }
@@ -69,7 +66,7 @@ namespace KeycardMenagmentSystem.Services
             }
             else
             {
-                return userRole;
+                return user;
             }
         }
     }

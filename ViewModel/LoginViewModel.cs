@@ -68,8 +68,8 @@ namespace KeycardMenagmentSystem.ViewModel
             try
             {
                 StatusMessage = "Logging in...";
-                var role = await new AuthenticationService().Login(Username, Password);
-                StatusMessage = $"Login successful. Role: {role}";
+                Model.Users user = await new AuthenticationService().Login(Username, Password);
+                StatusMessage = $"Login successful. Role: {user.Role}";
                 
             }
             catch (UnauthorizedAccessException ex)

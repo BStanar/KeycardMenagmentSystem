@@ -9,6 +9,6 @@ namespace KeycardMenagmentSystem.Services
 {
     public interface IAuthenticationService
     {
-        Task<Users> Login(string username, string password);
+        public Task<Users> Login(string username, string password);
     }
 }
