@@ -31,14 +31,14 @@
             Foreground="Gray"
             Text="USERNAME / E-MAIL / KEYCARD" />
 
-            <TextBox Margin="0,10,0,0" Padding="5,10"
+            <TextBox Margin="0,10,0,0" Padding="5,10" Height="35px"
             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Margin="0,30,0,0"
             Foreground="Gray"
             Text="PASSWORD" />
 
-            <components:BindablePasswordBox></components:BindablePasswordBox>
+            <components:BindablePasswordBox Password="{Binding Password}" Height="35px"></components:BindablePasswordBox>
 
             <Button Margin="0,25,0,0" Padding="10"
             Background="#4285F4"
