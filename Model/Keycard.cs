@@ -10,11 +10,10 @@ namespace KeycardMenagmentSystem.Model
     {
         private int _keycardID;
         private string _serialCode;
-        
-        private Employee _employee;
+        private int _userId;
 
+       
         public int KeycardID {  get { return _keycardID; } set { _keycardID = value; } }
         public string SerialCode { get { return _serialCode;} set { _serialCode = value; } }
-        public Employee Employee { get { return _employee; } }
     }
 }

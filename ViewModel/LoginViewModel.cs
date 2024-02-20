@@ -65,10 +65,21 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private async Task Login()
         {
-            StatusMessage = "Logging in..."+Password;
-            
-            await new AuthenticationService().Login(Username,Password);
-
+            try
+            {
+                StatusMessage = "Logging in...";
+                var role = await new AuthenticationService().Login(Username, Password);
+                StatusMessage = $"Login successful. Role: {role}";
+                
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                StatusMessage = "Login failed: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = "An error occurred: " + ex.Message;
+            }
         }
     }
 

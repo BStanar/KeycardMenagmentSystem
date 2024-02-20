@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using KeycardMenagmentSystem.Model;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,17 @@ namespace KeycardMenagmentSystem.Services
     class AuthenticationService:IAuthenticationService
     {
         private string connectionString = "server=127.0.0.1;uid=root;database=keycardmenager;";
+        
 
-        public async Task Login(string username, string password)
+        public async Task<Users> Login(string username, string password)
         {
+
             await Task.Yield();
 
             bool isAuthenticated = false;
+            string userRole = null;
+            Users user;
+            Keycard keycard;
 
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -29,7 +35,7 @@ namespace KeycardMenagmentSystem.Services
                     WHERE (u.`username` = @identifier OR u.`email` = @identifier OR k.`serial_number` = @identifier)
                       AND u.`password` = @password
                     LIMIT 1;
-                ";
+                    ";
 
                     using (var cmd = new MySqlCommand(query, connection))
                     {
@@ -42,6 +48,11 @@ namespace KeycardMenagmentSystem.Services
                         {
                             // If any rows are returned, the user is authenticated
                             isAuthenticated = reader.HasRows;
+                            if(isAuthenticated && reader.Read())
+                            {
+                                user = new Users(Convert.ToInt32(reader["id"]), reader["username"].ToString(), reader["email"].ToString(), reader["name"].ToString(),
+                                     reader["lastname"].ToString(), Convert.ToDateTime(reader["date_of_employment"]), reader["role"].ToString());
+                            }
                         }
                     }
                 }
@@ -58,8 +69,7 @@ namespace KeycardMenagmentSystem.Services
             }
             else
             {
-
-                throw new UnauthorizedAccessException("Dobar" );
+                return userRole;
             }
         }
     }
