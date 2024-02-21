@@ -58,13 +58,14 @@ namespace KeycardMenagmentSystem.ViewModel
         public bool HasStatusMessage => !string.IsNullOrEmpty(StatusMessage);
 
         public ICommand LoginCommand { get; }
-        public ICommand NavigateToAccessPointListing { get; }
+        public ICommand NavigateToAccessPointListing { get; private set; }
+        private NavigateStore _navigationStore;
 
         public LoginViewModel(NavigateStore navigationStore)
         {
             //LoginCommand = new LoginCommand(this, new AuthenticationService(), (ex) => StatusMessage = ex.Message);
             LoginCommand = new AsyncRelayCommand(Login, (ex) => StatusMessage = ex.Message);
-            NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(navigationStore);
+            _navigationStore = navigationStore;
             //_accessPointListingViewModel = accessPointListingViewModel;
         }
 
@@ -79,7 +80,8 @@ namespace KeycardMenagmentSystem.ViewModel
                 if (user.Role == "Manager")
                 {
                     // Navigate to AccountListingViewModel for manager role
-                    CurrentViewModel.Instance.CurrentVM = _accessPointListingViewModel;
+                    NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(_navigationStore);
+
                 }
             }
             catch (UnauthorizedAccessException ex)
