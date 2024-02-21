@@ -3,37 +3,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:KeycardMenagmentSystem.View"    
         Title="ManagerView" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-
-        <DockPanel Grid.RowSpan="4" Grid.Column="0" Grid.Row="0" Style="{StaticResource NavigationDockPanel}">
-            <StackPanel>
-                <Button Content="See all aceess points"/>
-                <Button Content="See all cards" Style="{StaticResource NavigationButtonClicked}" Click="SeeAllCards"/>
-            </StackPanel>
-        </DockPanel>
-        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="White">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <ListView Grid.Row="0"/>
-            <Button Content="Generate report" Grid.Row="1" Style="{StaticResource ActionButton}" Margin="10"  Click="GenerateReport"/>
+        
+        <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="#4285F4"
+            Text="Access points" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.Column="1"/>
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <local:AccesPoint></local:AccesPoint>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="0"
+            MaxWidth="500">
+            <Button Margin="10" 
+             Background="#4285F4"
+             Command="{Binding LoginCommand}"
+             Content="Access points"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White" />
+            
+            <Button Margin="10" 
+             Background="#4285F4"
+             Command="{Binding LoginCommand}"
+             Content="Employees"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White" />
+            
+            <Button Margin="10" 
+             Background="#4285F4"
+             Command="{Binding LoginCommand}"
+             Content="Keycards"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White" />
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <local:Logs ></local:Logs>
         </Grid>
     </Grid>
 </Window>

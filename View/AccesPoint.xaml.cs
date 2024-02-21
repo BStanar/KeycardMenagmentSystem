@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for AccessPointView.xaml
+    /// Interaction logic for AccesPoint.xaml
     /// </summary>
-    public partial class AccessPointView : Window
+    public partial class AccesPoint : UserControl
     {
-        public AccessPointView()
+        public AccesPoint()
         {
             InitializeComponent();
         }
