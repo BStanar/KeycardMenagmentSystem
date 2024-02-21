@@ -57,7 +57,7 @@ namespace KeycardMenagmentSystem.ViewModel
         public bool HasStatusMessage => !string.IsNullOrEmpty(StatusMessage);
 
         public ICommand LoginCommand { get; }
-        public ICommand NavigateToAccessPointListing { get; private set; }
+        public ICommand NavigateToManagerViewCommand { get; private set; }
         private NavigateStore _navigationStore;
 
         public LoginViewModel(NavigateStore navigationStore)
@@ -77,8 +77,8 @@ namespace KeycardMenagmentSystem.ViewModel
 
                 if (user.Role == "Manager")
                 {
-                    NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(_navigationStore);
-                    NavigateToAccessPointListing.Execute(this);
+                    NavigateToManagerViewCommand = new NavigateToManagerViewCommand(_navigationStore);
+                    NavigateToManagerViewCommand.Execute(this);
                 }
                 else
                 {

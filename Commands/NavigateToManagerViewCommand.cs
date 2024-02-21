@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Commands
 {
-    public class NavigateToAccessPointListingCommand : CommandBase
+    public class NavigateToManagerViewCommand : CommandBase
     {
         private readonly NavigateStore _navigationStore;
 
-        public NavigateToAccessPointListingCommand(NavigateStore navigationStore)
+        public NavigateToManagerViewCommand(NavigateStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new AccessPointListingViewModel();
+            _navigationStore.CurrentViewModel = new ManagerViewModel();
         }
     }
 }
