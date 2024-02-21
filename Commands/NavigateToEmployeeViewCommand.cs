@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Commands
 {
-    public class NavigateToUserViewCommand : CommandBase
+    public class NavigateToEmployeeViewCommand : CommandBase
     {
         private readonly NavigateStore _navigationStore;
 
-        public NavigateToUserViewCommand(NavigateStore navigationStore)
+        public NavigateToEmployeeViewCommand(NavigateStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-           // _navigationStore.CurrentViewModel = new UserViewModel();
+           _navigationStore.CurrentViewModel = new EmployeeViewModel();
         }
     }
 }

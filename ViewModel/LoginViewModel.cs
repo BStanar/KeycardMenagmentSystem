@@ -58,6 +58,7 @@ namespace KeycardMenagmentSystem.ViewModel
 
         public ICommand LoginCommand { get; }
         public ICommand NavigateToManagerViewCommand { get; private set; }
+        public ICommand NavigateToEmployeeViewCommand { get; private set; }
         private NavigateStore _navigationStore;
 
         public LoginViewModel(NavigateStore navigationStore)
@@ -82,7 +83,8 @@ namespace KeycardMenagmentSystem.ViewModel
                 }
                 else
                 {
-                    //open userView
+                    NavigateToEmployeeViewCommand = new NavigateToEmployeeViewCommand(_navigationStore);
+                    NavigateToEmployeeViewCommand.Execute(this);
                 }
             }
             catch (UnauthorizedAccessException ex)
