@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KeycardMenagmentSystem.View.ManagerView"
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.EmployeeView"
 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -17,12 +17,12 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <TextBlock
             FontSize="24"
             FontWeight="Bold"
             Foreground="#4285F4"
-            Text="Menager view" 
+            Text="Employee view" 
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Grid.Column="1"/>
@@ -32,33 +32,15 @@
         </Grid>
         <StackPanel Grid.Row="2" Grid.Column="0"
             MaxWidth="500">
+            <TextBlock Text="" x:Name="firstAndLastNameEmployee"/>
+            <TextBlock Text="USERNAME:" Margin="0 5 0 0"/>
+            <TextBlock Text="" x:Name="usernameEmployee" FontSize="16" Padding="5"/>
+            <TextBlock Text="CARD NUMBER:" Margin="0 5 0 0"/>
+            <TextBlock Text="" x:Name="cardNumberEmployee" FontSize="16" Padding="5"/>
+            <TextBlock Text="ROLE:" Margin="0 5 0 0"/>
+            <TextBlock Text="" x:Name="roleEmployee" FontSize="16" Padding="5"/>
             <Button Margin="10" 
              Background="#4285F4"
-             Command="{Binding LoginCommand}"
-             Content="Access points"
-             Cursor="Hand"
-             FontWeight="Bold"
-             Foreground="White" />
-            
-            <Button Margin="10" 
-             Background="#4285F4"
-             Command="{Binding LoginCommand}"
-             Content="Employees"
-             Cursor="Hand"
-             FontWeight="Bold"
-             Foreground="White" />
-            
-            <Button Margin="10" 
-             Background="#4285F4"
-             Command="{Binding LoginCommand}"
-             Content="Keycards"
-             Cursor="Hand"
-             FontWeight="Bold"
-             Foreground="White" />
-            
-            <Button Margin="10" 
-             Background="#4285F4"
-             Command="{Binding LoginCommand}"
              Content="Log out"
              Cursor="Hand"
              FontWeight="Bold"

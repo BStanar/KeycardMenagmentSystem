@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
-    class UserViewModel
+    class EmployeeViewModel : ViewModelBase
     {
     }
 }
