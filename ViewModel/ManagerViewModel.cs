@@ -13,10 +13,11 @@ namespace KeycardMenagmentSystem.ViewModel
     public class ManagerViewModel : ViewModelBase
     {
         public ICommand LogOutCommand { get; }
+        public ICommand EmployeesCommand { get; }
         public ManagerViewModel(NavigateStore navigationStore)
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-
+            EmployeesCommand = new NavigateManagerToEmployeesCommand(navigationStore);
         }
 
     }
