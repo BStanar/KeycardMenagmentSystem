@@ -1,5 +1,6 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Services;
+using KeycardMenagmentSystem.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,11 +57,14 @@ namespace KeycardMenagmentSystem.ViewModel
         public bool HasStatusMessage => !string.IsNullOrEmpty(StatusMessage);
 
         public ICommand LoginCommand { get; }
+        public ICommand NavigateToManagerViewCommand { get; private set; }
+        private NavigateStore _navigationStore;
 
-        public LoginViewModel()
+        public LoginViewModel(NavigateStore navigationStore)
         {
             //LoginCommand = new LoginCommand(this, new AuthenticationService(), (ex) => StatusMessage = ex.Message);
             LoginCommand = new AsyncRelayCommand(Login, (ex) => StatusMessage = ex.Message);
+            _navigationStore = navigationStore;
         }
 
         private async Task Login()
@@ -70,16 +74,16 @@ namespace KeycardMenagmentSystem.ViewModel
                 StatusMessage = "Logging in...";
                 Model.Users user = await new AuthenticationService().Login(Username, Password);
                 StatusMessage = $"Login successful. Role: {user.Role}";
-                if (user.Role == "Menager")
+
+                if (user.Role == "Manager")
                 {
-                    //open MenagerView< menagerview currently is a user controll should it be window?
+                    NavigateToManagerViewCommand = new NavigateToManagerViewCommand(_navigationStore);
+                    NavigateToManagerViewCommand.Execute(this);
                 }
                 else
                 {
                     //open userView
                 }
-
-                
             }
             catch (UnauthorizedAccessException ex)
             {
