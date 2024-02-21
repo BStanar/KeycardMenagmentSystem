@@ -7,17 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Name="LogList" ItemsSource="{Binding Logs}"  BorderBrush="Black" >
+        <ListView Name="LogList" ItemsSource="{Binding AccessLogs}"  BorderBrush="Black" >
             <ListView.View >
-                <GridView >
-                    <GridViewColumn DisplayMemberBinding="{Binding AccessPoint}" Header="Access point" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Date}" Header="Date" />
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding LogID}" Header="Access ID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding AccessPointName}" Header="Access point" />
+                    <GridViewColumn DisplayMemberBinding="{Binding EventDate}" Header="Date" />
                     <GridViewColumn DisplayMemberBinding="{Binding Time}" Header="Time"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Keycard}" Header="Keycard"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding KeycardSerial}" Header="Keycard"/>
+                    <!-- Adjusted to KeycardDetail -->
                     <GridViewColumn DisplayMemberBinding="{Binding Firstname}" Header="Firstname"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Lastname}" Header="Lastname"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Succesfull}" Header="Succesfull"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding NoAttempts}" Header="Number of attempts"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Successful}" Header="Successful"/>
+                    <!-- Typo corrected to "Successful" -->
+                    <GridViewColumn DisplayMemberBinding="{Binding NumberOfScans}" Header="No. attempts"/>
                 </GridView>
             </ListView.View>
         </ListView>
