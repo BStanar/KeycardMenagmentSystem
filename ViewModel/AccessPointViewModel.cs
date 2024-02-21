@@ -28,12 +28,14 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private async void LoadAccessPoints()
         {
+
             var accessPoints = await _getAccessPointService.GetAccesPoints();
             _accessPoints.Clear();
             foreach (var accessPoint in accessPoints)
             {
                 _accessPoints.Add(accessPoint);
             }
+
         }
     }
 }

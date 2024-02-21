@@ -22,7 +22,7 @@
          Grid.Row="1"
          Margin="0 20 0 0"
          VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding AccessPointViewModel}">
+            <ItemsControl ItemsSource="{Binding AccessPoints}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <components:AccessPointCard />

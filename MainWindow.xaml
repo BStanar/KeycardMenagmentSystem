@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="AccessControl system" Height="650" Width="800">
     <Grid>
-        <views:AccesPoint/>
+        <views:ManagerView/>
     </Grid>
 </Window>

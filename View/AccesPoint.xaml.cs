@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KeycardMenagmentSystem.Services;
+using KeycardMenagmentSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,8 @@ namespace KeycardMenagmentSystem.View
         public AccesPoint()
         {
             InitializeComponent();
+            this.DataContext = new AccessPointsViewModel(new GetAccessPointsService());
+
         }
     }
 }
