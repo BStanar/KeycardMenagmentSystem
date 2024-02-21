@@ -17,6 +17,12 @@ namespace KeycardMenagmentSystem.ViewModel
         public AccessPointListingViewModel()
         {
             _accessPoints = new ObservableCollection<AccessPointViewModel>();
+
+            _accessPoints.Add(new AccessPointViewModel(new Model.AccessPoint(1, "ime1")));
+            _accessPoints.Add(new AccessPointViewModel(new Model.AccessPoint(2, "ime2")));
+            _accessPoints.Add(new AccessPointViewModel(new Model.AccessPoint(4, "ime3")));
+            _accessPoints.Add(new AccessPointViewModel(new Model.AccessPoint(5, "ime4")));
+            _accessPoints.Add(new AccessPointViewModel(new Model.AccessPoint(6, "ime5")));
         }
     }
 }
