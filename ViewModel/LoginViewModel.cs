@@ -12,7 +12,6 @@ namespace KeycardMenagmentSystem.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
-        private readonly AccessPointListingViewModel _accessPointListingViewModel;
         private string _username;
         private string _password;
         public string Username
@@ -66,7 +65,6 @@ namespace KeycardMenagmentSystem.ViewModel
             //LoginCommand = new LoginCommand(this, new AuthenticationService(), (ex) => StatusMessage = ex.Message);
             LoginCommand = new AsyncRelayCommand(Login, (ex) => StatusMessage = ex.Message);
             _navigationStore = navigationStore;
-            //_accessPointListingViewModel = accessPointListingViewModel;
         }
 
         private async Task Login()
@@ -79,9 +77,8 @@ namespace KeycardMenagmentSystem.ViewModel
 
                 if (user.Role == "Manager")
                 {
-                    // Navigate to AccountListingViewModel for manager role
                     NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(_navigationStore);
-
+                    NavigateToAccessPointListing.Execute(this);
                 }
             }
             catch (UnauthorizedAccessException ex)
