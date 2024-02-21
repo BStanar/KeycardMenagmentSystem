@@ -1,22 +1,42 @@
 ﻿using KeycardMenagmentSystem.Model;
+using KeycardMenagmentSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeycardMenagmentSystem.Model;
+using KeycardMenagmentSystem.Services;
+using System.Collections.ObjectModel;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
-    public class AccessPointViewModel : ViewModelBase
+    internal class AccessPointsViewModel
     {
-        private readonly AccessPoint? _accessPoint;
+        private readonly ObservableCollection<AccessPoint> _accessPoints;
+        public IEnumerable<AccessPoint> AccessPoints => _accessPoints;
 
-        public string AccessPointID => _accessPoint.AccesPointID.ToString();
-        public string Name => _accessPoint.Name;
+        private readonly IGetAccessPointService _getAccessPointService;
 
-        public AccessPointViewModel(AccessPoint accessPoint)
+        public AccessPointsViewModel(IGetAccessPointService getAccessPointService)
         {
-            _accessPoint = accessPoint;
+            _getAccessPointService = getAccessPointService;
+            _accessPoints = new ObservableCollection<AccessPoint>();
+
+            LoadAccessPoints();
+        }
+
+        private async void LoadAccessPoints()
+        {
+
+            var accessPoints = await _getAccessPointService.GetAccesPoints();
+            _accessPoints.Clear();
+            foreach (var accessPoint in accessPoints)
+            {
+                _accessPoints.Add(accessPoint);
+            }
+
         }
     }
 }
+
