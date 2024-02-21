@@ -19,7 +19,7 @@ namespace KeycardMenagmentSystem.Commands
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new ManagerViewModel();
+            _navigationStore.CurrentViewModel = new ManagerViewModel(_navigationStore);
         }
     }
 }
