@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeycardMenagmentSystem"      
         xmlns:views="clr-namespace:KeycardMenagmentSystem.View"
+        xmlns:viewmodels="clr-namespace:KeycardMenagmentSystem.ViewModel"
         mc:Ignorable="d"
         Title="AccessControl system" Height="650" Width="800">
-    <Grid>
-        <views:LoginScreen/>
-    </Grid>
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginScreen/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AccessPointListingViewModel}">
+                <views:ManagerView/>
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
 </Window>

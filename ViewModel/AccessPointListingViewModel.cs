@@ -13,6 +13,7 @@ namespace KeycardMenagmentSystem.ViewModel
         private readonly ObservableCollection<AccessPointViewModel> _accessPoints;
         public IEnumerable<AccessPointViewModel> AccessPoints => _accessPoints;
 
+
         public AccessPointListingViewModel()
         {
             _accessPoints = new ObservableCollection<AccessPointViewModel>();

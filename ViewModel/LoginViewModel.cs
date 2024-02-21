@@ -1,5 +1,6 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Services;
+using KeycardMenagmentSystem.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace KeycardMenagmentSystem.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
+        private readonly AccessPointListingViewModel _accessPointListingViewModel;
         private string _username;
         private string _password;
         public string Username
@@ -56,11 +58,14 @@ namespace KeycardMenagmentSystem.ViewModel
         public bool HasStatusMessage => !string.IsNullOrEmpty(StatusMessage);
 
         public ICommand LoginCommand { get; }
+        public ICommand NavigateToAccessPointListing { get; }
 
-        public LoginViewModel()
+        public LoginViewModel(NavigateStore navigationStore)
         {
             //LoginCommand = new LoginCommand(this, new AuthenticationService(), (ex) => StatusMessage = ex.Message);
             LoginCommand = new AsyncRelayCommand(Login, (ex) => StatusMessage = ex.Message);
+            NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(navigationStore);
+            //_accessPointListingViewModel = accessPointListingViewModel;
         }
 
         private async Task Login()
@@ -70,7 +75,12 @@ namespace KeycardMenagmentSystem.ViewModel
                 StatusMessage = "Logging in...";
                 Model.Users user = await new AuthenticationService().Login(Username, Password);
                 StatusMessage = $"Login successful. Role: {user.Role}";
-                
+
+                if (user.Role == "Manager")
+                {
+                    // Navigate to AccountListingViewModel for manager role
+                    CurrentViewModel.Instance.CurrentVM = _accessPointListingViewModel;
+                }
             }
             catch (UnauthorizedAccessException ex)
             {
