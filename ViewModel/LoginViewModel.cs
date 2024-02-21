@@ -70,6 +70,15 @@ namespace KeycardMenagmentSystem.ViewModel
                 StatusMessage = "Logging in...";
                 Model.Users user = await new AuthenticationService().Login(Username, Password);
                 StatusMessage = $"Login successful. Role: {user.Role}";
+                if (user.Role == "Menager")
+                {
+                    //open MenagerView< menagerview currently is a user controll should it be window?
+                }
+                else
+                {
+                    //open userView
+                }
+
                 
             }
             catch (UnauthorizedAccessException ex)
