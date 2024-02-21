@@ -80,6 +80,10 @@ namespace KeycardMenagmentSystem.ViewModel
                     NavigateToAccessPointListing = new NavigateToAccessPointListingCommand(_navigationStore);
                     NavigateToAccessPointListing.Execute(this);
                 }
+                else
+                {
+                    //open userView
+                }
             }
             catch (UnauthorizedAccessException ex)
             {

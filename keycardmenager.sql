@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2024 at 11:28 AM
+-- Generation Time: Feb 21, 2024 at 11:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -160,7 +160,7 @@ INSERT INTO `log` (`id`, `accesspoint_id`, `keycard_id`, `user_id`, `eventdate`,
 (3, 3, 3, 3, '2024-02-21 08:10:00', 1, 1),
 (4, 2, 4, 4, '2024-02-21 08:15:00', 1, 1),
 (5, 2, 5, 5, '2024-02-21 08:20:00', 1, 1),
-(6, 5, 6, 6, '2024-02-21 08:25:00', 1, 1),
+(6, 1, 6, 6, '2024-02-21 08:25:00', 1, 1),
 (7, 2, 7, 7, '2024-02-21 08:30:00', 1, 1),
 (8, 2, 8, 8, '2024-02-21 08:35:00', 1, 1),
 (9, 4, 9, 9, '2024-02-21 08:40:00', 1, 1);

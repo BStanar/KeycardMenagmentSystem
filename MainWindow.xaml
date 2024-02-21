@@ -22,7 +22,7 @@
 </Window>
 =======
     <Grid>
-        <views:ManagerView/>
+        <views:LoginScreen/>
     </Grid>
 </Window>
 >>>>>>> 3d8c9d127349daae0c61d0c70002585f15818f64
