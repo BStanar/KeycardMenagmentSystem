@@ -19,6 +19,9 @@
     <None Update="Resources\logo_skylinecommunications_0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\meeting_room_FILL0_wght400_GRAD0_opsz24.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

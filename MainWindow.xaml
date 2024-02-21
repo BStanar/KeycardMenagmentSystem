@@ -8,6 +8,7 @@
         xmlns:viewmodels="clr-namespace:KeycardMenagmentSystem.ViewModel"
         mc:Ignorable="d"
         Title="AccessControl system" Height="650" Width="800">
+<<<<<<< HEAD
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
@@ -19,3 +20,9 @@
         </ContentControl.Resources>
     </ContentControl>
 </Window>
+=======
+    <Grid>
+        <views:ManagerView/>
+    </Grid>
+</Window>
+>>>>>>> 3d8c9d127349daae0c61d0c70002585f15818f64
