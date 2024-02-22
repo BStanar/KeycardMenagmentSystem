@@ -95,7 +95,7 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private void AddUser(object parameter)
         {
-            var newUser = new Users
+           var newUser = new Users
             {
                 Email = Email,
                 Password = Password,

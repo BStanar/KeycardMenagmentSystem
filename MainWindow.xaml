@@ -11,13 +11,19 @@
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <views:AccesPointMenagmentView/>
+                <views:LoginScreen/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
                 <views:ManagerView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:EmployeeViewModel}">
                 <views:EmployeeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
+                <views:EmployeesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:KeycardsViewModel}">
+                <views:KeycardsView/>
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
