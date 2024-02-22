@@ -42,7 +42,7 @@
 
             <Button Margin="0" 
              Background="#4285F4"
-             Command="{Binding LoginCommand}"
+             Command="{Binding EmployeesCommand}"
              Content="Employees"
              Cursor="Hand"
              FontWeight="Bold"
@@ -50,7 +50,7 @@
 
             <Button Margin="0" 
              Background="#4285F4"
-             Command="{Binding LoginCommand}"
+             Command="{Binding KeycardsCommand}"
              Content="Keycards"
              Cursor="Hand"
              FontWeight="Bold"
