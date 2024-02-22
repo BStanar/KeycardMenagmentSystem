@@ -10,15 +10,13 @@
         <ListView Name="LogList" ItemsSource="{Binding AccessLogs}"  BorderBrush="Black" >
             <ListView.View >
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding LogID}" Header="Access ID" />
                     <GridViewColumn DisplayMemberBinding="{Binding AccessPointName}" Header="Access point" />
                     <GridViewColumn DisplayMemberBinding="{Binding EventDate}" Header="Date" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Time}" Header="Time"/>
                     <GridViewColumn DisplayMemberBinding="{Binding KeycardSerial}" Header="Keycard"/>
                     <!-- Adjusted to KeycardDetail -->
                     <GridViewColumn DisplayMemberBinding="{Binding Firstname}" Header="Firstname"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Lastname}" Header="Lastname"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Successful}" Header="Successful"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AccessResult}" Header="Attempt"/>
                     <!-- Typo corrected to "Successful" -->
                     <GridViewColumn DisplayMemberBinding="{Binding NumberOfScans}" Header="No. attempts"/>
                 </GridView>

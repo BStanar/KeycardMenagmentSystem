@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositoryes\**" />
+    <EmbeddedResource Remove="Repositoryes\**" />
+    <None Remove="Repositoryes\**" />
+    <Page Remove="Repositoryes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.3.5" />
   </ItemGroup>
 
@@ -22,10 +29,6 @@
     <None Update="Resources\meeting_room_FILL0_wght400_GRAD0_opsz24.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repositoryes\" />
   </ItemGroup>
 
 </Project>

@@ -43,5 +43,24 @@ namespace KeycardMenagmentSystem.Services
 
             return accessPoints;
         }
+
+        public async Task AddAccessPoint(AccessPoint accessPoint)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                var query = "INSERT INTO accesspoint (name, serial) VALUES (@name, @serial);";
+
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    // Assuming AccessPoint class has Name and Serial properties
+                    cmd.Parameters.AddWithValue("@name", accessPoint.Name);
+                    cmd.Parameters.AddWithValue("@serial", accessPoint.Serial);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
     }
 }

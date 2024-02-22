@@ -50,5 +50,19 @@ namespace KeycardMenagmentSystem.Model
             this._startOfEmployment = startOfEmployment;
             
         }
+
+
+
+        public Users(string username, string email, string password, string firstName, string lastName, DateTime startOfEmployment, string role)
+        {
+            FirstName = firstName;
+            Lastname = lastName;
+            Email = email;
+            Role = role;
+            this._password = password;
+            this._username = username;
+            this._startOfEmployment = startOfEmployment;
+
+        }
     }
 }

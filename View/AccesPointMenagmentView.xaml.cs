@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KeycardMenagmentSystem.CustomControlls
+namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for AccessPointCard.xaml
+    /// Interaction logic for AccesPointMenagmentView.xaml
     /// </summary>
-    public partial class AccessPointCard : UserControl
+    public partial class AccesPointMenagmentView : UserControl
     {
-        public AccessPointCard()
+        public AccesPointMenagmentView()
         {
             InitializeComponent();
         }
