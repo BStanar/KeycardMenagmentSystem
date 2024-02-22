@@ -15,8 +15,14 @@ namespace KeycardMenagmentSystem.Model
         public int AccesPointID {  get { return _accesPointID; } set { _accesPointID = value; } }
         public string Name { get { return _name; } set { _name = value; } } 
         public string Serial { get { return _serial; } set { _serial = value; } }
-        public AccessPoint(int accesPointId, string name,string serial ) {
+        public AccessPoint(int accesPointId, string name, string serial)
+        {
             AccesPointID = accesPointId;
+            Name = name;
+            Serial = serial;
+        }
+        public AccessPoint( string name, string serial)
+        {
             Name = name;
             Serial = serial;
         }

@@ -102,8 +102,8 @@ namespace KeycardMenagmentSystem.ViewModel
                 FirstName = Name,
                 Lastname = LastName,
                 StartOfEmployment = DateOfEmployment,
-                
-                
+
+
             };
 
             UserService service = new UserService();
@@ -122,7 +122,7 @@ namespace KeycardMenagmentSystem.ViewModel
                    !string.IsNullOrEmpty(Password) &&
                    !string.IsNullOrEmpty(Name) &&
                    !string.IsNullOrEmpty(LastName) &&
-                   DateOfEmployment != default(DateTime);
+                   DateOfEmployment != default;
         }
 
         private void ClearFields()
@@ -131,7 +131,7 @@ namespace KeycardMenagmentSystem.ViewModel
             Password = string.Empty;
             Name = string.Empty;
             LastName = string.Empty;
-            DateOfEmployment = default(DateTime);
+            DateOfEmployment = default;
             IsManager = false;
         }
 
