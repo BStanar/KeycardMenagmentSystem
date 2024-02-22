@@ -11,5 +11,6 @@ namespace KeycardMenagmentSystem.Services
     internal interface IGetAccessLogs
     {
         public Task<List<AccessLog>> GetAccesLogs();
+        public Task<List<AccessLog>> GetAccesLogs(int userID);
     }
 }

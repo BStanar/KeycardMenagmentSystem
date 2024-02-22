@@ -34,11 +34,11 @@
             MaxWidth="500" Grid.ColumnSpan="2" Margin="71,0,1027,0">
             <TextBlock Text="" x:Name="firstAndLastNameEmployee"/>
             <TextBlock Text="USERNAME:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="usernameEmployee" FontSize="16" Padding="5"/>
+            <TextBlock Text="{Binding Username}" x:Name="usernameEmployee" FontSize="16" Padding="5"/>
             <TextBlock Text="CARD NUMBER:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="cardNumberEmployee" FontSize="16" Padding="5"/>
+            <TextBlock Text="{Binding Username}" x:Name="cardNumberEmployee" FontSize="16" Padding="5"/>
             <TextBlock Text="ROLE:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="roleEmployee" FontSize="16" Padding="5"/>
+            <TextBlock Text="Employee" x:Name="roleEmployee" FontSize="16" Padding="5"/>
             <Button Margin="0 370"   
             Background="#ED7D31"
              Content="Log out"
@@ -49,7 +49,7 @@
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-269,0">
             <local:Logs ></local:Logs>
-            <local:_2DPieChart Margin="308,-10,-310,10"/>
+            <local:_2DPieChart Margin="414,-4,-416,4"/>
         </Grid>
     </Grid>
 </UserControl>
