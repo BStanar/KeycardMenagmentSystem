@@ -39,6 +39,7 @@ CREATE TABLE `accesspoint` (
 
 INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
 (1, 'Main entrance', '1'),
+
 (2, 'Exit ', '2'),
 (3, 'Cash register', '3'),
 (4, 'Canteen', '4'),
@@ -163,7 +164,7 @@ INSERT INTO `log` (`id`, `accesspoint_id`, `keycard_id`, `user_id`, `eventdate`,
 (6, 1, 6, 6, '2024-02-21 08:25:00', 1, 1),
 (7, 2, 7, 7, '2024-02-21 08:30:00', 1, 1),
 (8, 2, 8, 8, '2024-02-21 08:35:00', 1, 1),
-(9, 4, 9, 9, '2024-02-21 08:40:00', 1, 1);
+(9, 6, 9, 9, '2024-02-21 08:40:00', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -187,6 +188,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
+
 (1, 'marko', 'marko@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Marko', 'Marković', '2024-02-01', 'Employee'),
 (2, 'jelena', 'jelena@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
 (3, 'nikola', 'nikola@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
@@ -199,6 +201,7 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `
 (10, 'luka', 'luka@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Luka', 'Lukić', '2024-02-10', 'Employee'),
 (11, 'sara', 'sara@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Sara', 'Sarić', '2024-02-11', 'Employee'),
 (12, 'petar', 'petar@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Petar', 'Petrić', '2024-02-12', 'Manager');
+
 
 --
 -- Indexes for dumped tables
@@ -240,7 +243,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accesspoint`
 --
 ALTER TABLE `accesspoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `keycard`

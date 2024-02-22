@@ -12,5 +12,6 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <local:AccesPoint/>
+        <local:AddAccesPointView Grid.Row="1"/>
     </Grid>
 </UserControl>
