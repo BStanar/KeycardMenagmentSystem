@@ -4,12 +4,15 @@ using System.Windows.Input;
 using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Services;
+using KeycardMenagmentSystem.Utility_Classes;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
     public class AddUserViewModel : INotifyPropertyChanged
     {
         private string _email;
+        private string _hashedPassword;
+
         public string Email
         {
             get { return _email; }
@@ -27,6 +30,7 @@ namespace KeycardMenagmentSystem.ViewModel
             set
             {
                 _password = value;
+                _hashedPassword = PasswordHasher.HashPassword(value);
                 OnPropertyChanged("Password");
             }
         }
@@ -98,7 +102,7 @@ namespace KeycardMenagmentSystem.ViewModel
            var newUser = new Users
             {
                 Email = Email,
-                Password = Password,
+                Password = _hashedPassword,
                 FirstName = Name,
                 Lastname = LastName,
                 StartOfEmployment = DateOfEmployment,
