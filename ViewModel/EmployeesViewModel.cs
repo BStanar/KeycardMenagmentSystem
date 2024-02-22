@@ -1,6 +1,5 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Store;
-using KeycardMenagmentSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +9,16 @@ using System.Windows.Input;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
-    public class ManagerViewModel : ViewModelBase
+    public class EmployeesViewModel : ViewModelBase
     {
         public ICommand LogOutCommand { get; }
-        public ICommand EmployeesCommand { get; }
+        public ICommand AccessPointsCommand { get; }
         public ICommand KeycardsCommand { get; }
-        public ManagerViewModel(NavigateStore navigationStore)
+        public EmployeesViewModel(NavigateStore navigationStore)
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-            EmployeesCommand = new NavigateManagerToEmployeesCommand(navigationStore);
+            AccessPointsCommand = new NavigateToManagerViewCommand(navigationStore);
             KeycardsCommand = new NavigateManagerToKeycardsCommand(navigationStore);
         }
-
     }
 }

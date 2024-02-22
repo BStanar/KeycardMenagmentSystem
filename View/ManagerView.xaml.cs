@@ -11,5 +11,15 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
         }
+
+        private void Logs_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void _2DPieChart_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

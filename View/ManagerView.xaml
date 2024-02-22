@@ -6,62 +6,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
+        Height="1080" Width="1920">
+    <Grid Margin="10,10,675,298">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
-        
+
+        <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="#4285F4"
+            Text="Welcome" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.Column="1"/>
         <Grid Grid.Row="1"
               Grid.Column="1">
-            <local:AccesPoint 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-            />
+            <local:AccesPoint Margin="0,0,-295,32"></local:AccesPoint>
         </Grid>
-        <StackPanel Grid.Row="2" Grid.Column="0"
-            MaxWidth="500">
-            <Button Margin="10" 
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
+            MaxWidth="500" Margin="0,48,69,-5">
+            <Button Margin="0" 
              Background="#4285F4"
              Command="{Binding LoginCommand}"
              Content="Access points"
              Cursor="Hand"
              FontWeight="Bold"
              Foreground="White" />
-            
-            <Button Margin="10" 
+
+            <Button Margin="0" 
              Background="#4285F4"
              Command="{Binding LoginCommand}"
              Content="Employees"
              Cursor="Hand"
              FontWeight="Bold"
              Foreground="White" />
-            
-            <Button Margin="10" 
+
+            <Button Margin="0" 
              Background="#4285F4"
              Command="{Binding LoginCommand}"
              Content="Keycards"
              Cursor="Hand"
              FontWeight="Bold"
              Foreground="White" />
-            
-            <Button Margin="10" 
-             Background="#4285F4"
+            <Button
+             Margin="0 520"   
+             Background="#ED7D31"
              Command="{Binding LogOutCommand}"
              Content="Log out"
              Cursor="Hand"
              FontWeight="Bold"
-             Foreground="White" />
+             Foreground="White"
+             />
         </StackPanel>
-        <Grid Grid.Column="1" Grid.Row="2">
-            <local:Logs Margin="5"/>
+        <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-303,0">
+            <local:Logs Loaded="Logs_Loaded" Width="607" HorizontalAlignment="Left"/>
+            <local:_2DPieChart Margin="532,44,294,10" Loaded="_2DPieChart_Loaded"/>
+            <local:PresentUsersPieGraph Margin="903,44,-78,10" Loaded="_2DPieChart_Loaded"/>
         </Grid>
+
     </Grid>
 </UserControl>

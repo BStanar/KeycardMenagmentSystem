@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KeycardMenagmentSystem.View.EmployeeView"
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.KeycardsView"
 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -28,28 +28,46 @@
             Grid.Column="1"/>
         <Grid Grid.Row="1"
               Grid.Column="1">
-            <local:AccesPoint Margin="0,0,-295,32"></local:AccesPoint>
+            <!--<local:AccesPoint Margin="0,0,-295,32"></local:AccesPoint>-->
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
             MaxWidth="500" Grid.ColumnSpan="2" Margin="71,0,1027,0">
-            <TextBlock Text="" x:Name="firstAndLastNameEmployee"/>
-            <TextBlock Text="USERNAME:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="usernameEmployee" FontSize="16" Padding="5"/>
-            <TextBlock Text="CARD NUMBER:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="cardNumberEmployee" FontSize="16" Padding="5"/>
-            <TextBlock Text="ROLE:" Margin="0 5 0 0"/>
-            <TextBlock Text="" x:Name="roleEmployee" FontSize="16" Padding="5"/>
-            <Button Margin="0 370"   
-            Background="#ED7D31"
-             Content="Log out"
-             Command="{Binding LogOutCommand}"
+            <Button Margin="0" 
+             Background="#4285F4"
+             Command="{Binding AccessPointsCommand}"
+             Content="Access points"
              Cursor="Hand"
              FontWeight="Bold"
              Foreground="White" />
+
+            <Button Margin="0" 
+             Background="#4285F4"
+             Command="{Binding EmployeesCommand}"
+             Content="Employees"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White" />
+
+            <Button Margin="0" 
+             Background="#4285F4"
+             Content="Keycards"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White" />
+            <Button
+             Margin="0 370"   
+             Background="#ED7D31"
+             Command="{Binding LogOutCommand}"
+             Content="Log out"
+             Cursor="Hand"
+             FontWeight="Bold"
+             Foreground="White"
+             />
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-269,0">
-            <local:Logs ></local:Logs>
-            <local:_2DPieChart Margin="308,-10,-310,10"/>
+            <!-- <local:Logs Loaded="Logs_Loaded" Width="597" HorizontalAlignment="Left" Margin="10,0,0,0"></local:Logs> -->
+            <!-- <local:_2DPieChart Margin="308,-10,-310,10"/> -->
         </Grid>
+
     </Grid>
 </UserControl>
