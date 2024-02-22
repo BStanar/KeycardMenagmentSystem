@@ -10,16 +10,19 @@ namespace KeycardMenagmentSystem.Commands
 {
     public class NavigateManagerToKeycardsCommand : CommandBase
     {
+        private readonly int _userID;
         private readonly NavigateStore _navigationStore;
 
-        public NavigateManagerToKeycardsCommand(NavigateStore navigationStore)
+        public NavigateManagerToKeycardsCommand(int userID, NavigateStore navigationStore)
         {
+            _userID = userID;
             _navigationStore = navigationStore;
+
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new KeycardsViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new KeycardsViewModel(_userID, _navigationStore);
         }
     }
 }

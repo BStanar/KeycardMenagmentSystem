@@ -10,16 +10,18 @@ namespace KeycardMenagmentSystem.Commands
 {
     public class NavigateManagerToEmployeesCommand : CommandBase
     {
+        private readonly int _userID;
         private readonly NavigateStore _navigationStore;
 
-        public NavigateManagerToEmployeesCommand(NavigateStore navigationStore)
+        public NavigateManagerToEmployeesCommand(int userID, NavigateStore navigationStore)
         {
+            _userID = userID;
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new EmployeesViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new EmployeesViewModel(_userID, _navigationStore);
         }
     }
 }
