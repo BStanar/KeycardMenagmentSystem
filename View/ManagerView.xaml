@@ -34,7 +34,6 @@
             MaxWidth="500" Grid.ColumnSpan="2" Margin="71,0,1027,0">
             <Button Margin="0" 
              Background="#4285F4"
-             Command="{Binding LoginCommand}"
              Content="Access points"
              Cursor="Hand"
              FontWeight="Bold"
