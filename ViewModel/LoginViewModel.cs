@@ -1,6 +1,7 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Services;
 using KeycardMenagmentSystem.Store;
+using KeycardMenagmentSystem.Utility_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace KeycardMenagmentSystem.ViewModel
     {
         private string _username;
         private string _password;
+        private string _hashedPassword;
         public string Username
         {
             get
@@ -35,10 +37,14 @@ namespace KeycardMenagmentSystem.ViewModel
             set
             {
                 _password = value;
+                _hashedPassword = PasswordHasher.HashPassword(value);
                 OnPropertyChanged(nameof(Password));
             }
         }
-
+        private string HashedPassword
+        {
+            get { return _hashedPassword; }
+        }
         private string _statusMessage;
         public string StatusMessage
         {
@@ -73,7 +79,7 @@ namespace KeycardMenagmentSystem.ViewModel
             try
             {
                 StatusMessage = "Logging in...";
-                Model.Users user = await new AuthenticationService().Login(Username, Password);
+                Model.Users user = await new AuthenticationService().Login(Username, _hashedPassword);
                 StatusMessage = $"Login successful. Role: {user.Role}";
 
                 if (user.Role == "Manager")
