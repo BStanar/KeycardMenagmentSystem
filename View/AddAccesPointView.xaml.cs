@@ -1,6 +1,4 @@
-﻿using KeycardMenagmentSystem.CustomControlls;
-using KeycardMenagmentSystem.Model;
-using KeycardMenagmentSystem.Services;
+﻿using KeycardMenagmentSystem.Services;
 using KeycardMenagmentSystem.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -20,18 +18,14 @@ using System.Windows.Shapes;
 namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for AccesPoint.xaml
+    /// Interaction logic for AddAccesPointView.xaml
     /// </summary>
-    public partial class AccesPoint : UserControl
+    public partial class AddAccesPointView : UserControl
     {
-        public AccesPoint()
+        public AddAccesPointView()
         {
             InitializeComponent();
             this.DataContext = new AccessPointsViewModel(new GetAccessPointsService());
-
-
         }
-
-
     }
 }
