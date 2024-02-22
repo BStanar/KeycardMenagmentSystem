@@ -1,4 +1,4 @@
-<UserControl x:Class="KeycardMenagmentSystem.View.ManagerView"
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.ManagerView"
 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -31,9 +31,10 @@
             <local:AccesPoint Margin="0,0,-295,32"></local:AccesPoint>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
-            MaxWidth="500" Grid.ColumnSpan="2" Margin="71,0,1027,0">
+            MaxWidth="500" Margin="0,48,69,-5">
             <Button Margin="0" 
              Background="#4285F4"
+             Command="{Binding LoginCommand}"
              Content="Access points"
              Cursor="Hand"
              FontWeight="Bold"
@@ -41,7 +42,7 @@
 
             <Button Margin="0" 
              Background="#4285F4"
-             Command="{Binding EmployeesCommand}"
+             Command="{Binding LoginCommand}"
              Content="Employees"
              Cursor="Hand"
              FontWeight="Bold"
@@ -49,13 +50,13 @@
 
             <Button Margin="0" 
              Background="#4285F4"
-             Command="{Binding KeycardsCommand}"
+             Command="{Binding LoginCommand}"
              Content="Keycards"
              Cursor="Hand"
              FontWeight="Bold"
              Foreground="White" />
             <Button
-             Margin="0 370"   
+             Margin="0 520"   
              Background="#ED7D31"
              Command="{Binding LogOutCommand}"
              Content="Log out"
@@ -64,10 +65,11 @@
              Foreground="White"
              />
         </StackPanel>
-        <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-269,0">
-            <local:Logs Loaded="Logs_Loaded" Width="597" HorizontalAlignment="Left" Margin="10,0,0,0"></local:Logs>
-            <local:_2DPieChart Margin="308,-10,-310,10"/>
+        <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-303,0">
+            <local:Logs Loaded="Logs_Loaded" Width="607" HorizontalAlignment="Left"/>
+            <local:_2DPieChart Margin="532,44,294,10" Loaded="_2DPieChart_Loaded"/>
+            <local:PresentUsersPieGraph Margin="903,44,-78,10" Loaded="_2DPieChart_Loaded"/>
         </Grid>
-        
+
     </Grid>
 </UserControl>

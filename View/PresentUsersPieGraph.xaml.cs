@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace KeycardMenagmentSystem.View
 {
-    public partial class _2DPieChart : UserControl
+    public partial class PresentUsersPieGraph : UserControl
     {
-        public _2DPieChart()
+        public PresentUsersPieGraph()
         {
             InitializeComponent();
             DrawPieChart();
@@ -28,35 +28,36 @@ namespace KeycardMenagmentSystem.View
             mainCanvas.Width = pieWidth;
             mainCanvas.Height = pieHeight;
 
-            List<AccessLog> accessLogs =await new GetLogsService().GetAccesLogs();
-            double successful = 0, failed = 0;
+            List<AccessLog> accessLogs = await new GetLogsService().GetAccesLogs();
+            List<Users> users = await new UserService().GetAllUsers();
+            int NoOfUsers = users.Count;
 
             foreach (AccessLog accessLog in accessLogs)
             {
                 if (!accessLog.EventDate.Date.Equals(DateTime.Today.AddDays(-1))) accessLogs.Remove(accessLog);
-                
+
             }
 
+            List<int> userIdsinLogs = new List<int>();
             foreach (AccessLog accessLog in accessLogs)
             {
-                if (accessLog.Successful) successful++;
-                else failed++;
+                if(!userIdsinLogs.Contains(accessLog.UserID)) userIdsinLogs.Add(accessLog.UserID);
             }
 
             System.Threading.Thread.Sleep(500);
-            double a = (successful / (successful + failed)) * 100;
-            double b = (failed / (successful + failed))*100;
+            double a = (double) userIdsinLogs.Count/NoOfUsers * 100;
+            double b = 100-a;
             List<Category> Categories = new List<Category>()
             {
                 new Category
                 {
-                    Title = "Successfull atempts",
+                    Title = "People in Office Today:",
                     Percentage = (int)a,
                     ColorBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4472C4")),
                 },
                 new Category
                 {
-                    Title = "Unsuccessfull atempts",
+                    Title = "People home:",
                     Percentage =100-(int)a,
                     ColorBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ED7D31")),
                 },
@@ -134,12 +135,6 @@ namespace KeycardMenagmentSystem.View
                 mainCanvas.Children.Add(outline2);
             }
         }
-    }
 
-    public class Category
-    {
-        public float Percentage { get; set; }
-        public string Title { get; set; }
-        public Brush ColorBrush { get; set; }
     }
 }
