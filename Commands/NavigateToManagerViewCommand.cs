@@ -11,15 +11,17 @@ namespace KeycardMenagmentSystem.Commands
     public class NavigateToManagerViewCommand : CommandBase
     {
         private readonly NavigateStore _navigationStore;
+        private readonly int _userID;
 
-        public NavigateToManagerViewCommand(NavigateStore navigationStore)
+        public NavigateToManagerViewCommand(int userID, NavigateStore navigationStore)
         {
+            _userID = userID;
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new ManagerViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new ManagerViewModel(_userID, _navigationStore);
         }
     }
 }

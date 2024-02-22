@@ -11,11 +11,14 @@ namespace KeycardMenagmentSystem.ViewModel
 {
     public class EmployeeViewModel : ViewModelBase
     {
+        private readonly int _userID;
+
         public ICommand LogOutCommand { get; }
-        public EmployeeViewModel(NavigateStore navigationStore)
+        
+        public EmployeeViewModel(int userID, NavigateStore navigationStore)
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-
+            _userID = userID;
         }
     }
 }
