@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeycardMenagmentSystem.Model;
 
 
 namespace KeycardMenagmentSystem.ViewModel
@@ -24,6 +25,25 @@ namespace KeycardMenagmentSystem.ViewModel
             _accessLog = new ObservableCollection<AccessLog>();
 
             LoadAccessLogs();
+        }
+        public LogsViewModel(IGetAccessLogs getAccessLogsService,Users user)
+        {
+            _getAccessLogsService = getAccessLogsService;
+            _accessLog = new ObservableCollection<AccessLog>();
+
+            LoadAccessLogsOfOneUser(user);
+        }
+
+        private async void LoadAccessLogsOfOneUser(Users user)
+        {
+
+            var accessLogs = await _getAccessLogsService.GetAccesLogs(user.ID);
+            _accessLog.Clear();
+            foreach (var accesslog in accessLogs)
+            {
+                _accessLog.Add(accesslog);
+            }
+
         }
 
         private async void LoadAccessLogs()
