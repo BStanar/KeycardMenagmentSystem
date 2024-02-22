@@ -24,5 +24,10 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
         }
+
+        private void _2DPieChart_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

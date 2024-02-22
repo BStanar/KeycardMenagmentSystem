@@ -11,7 +11,7 @@
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <views:LoginScreen/>
+                <views:AccesPointMenagmentView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
                 <views:ManagerView/>
@@ -20,7 +20,7 @@
                 <views:EmployeeView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
-                <views:EmployeesView/>
+                <views:EmployeeView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:KeycardsViewModel}">
                 <views:KeycardsView/>
