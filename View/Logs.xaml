@@ -7,20 +7,75 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Name="LogList" ItemsSource="{Binding AccessLogs}"  BorderBrush="Black" >
-            <ListView.View >
+        <ListView Name="LogList" ItemsSource="{Binding AccessLogs}" BorderBrush="Black">
+            <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding AccessPointName}" Header="Access point" />
-                    <GridViewColumn DisplayMemberBinding="{Binding EventDate}" Header="Date" />
-                    <GridViewColumn DisplayMemberBinding="{Binding KeycardSerial}" Header="Keycard"/>
-                    <!-- Adjusted to KeycardDetail -->
-                    <GridViewColumn DisplayMemberBinding="{Binding Firstname}" Header="Firstname"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Lastname}" Header="Lastname"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding AccessResult}" Header="Attempt"/>
-                    <!-- Typo corrected to "Successful" -->
-                    <GridViewColumn DisplayMemberBinding="{Binding NumberOfScans}" Header="No. attempts"/>
+                    <!-- Access point column -->
+                    <GridViewColumn Header="Access point">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding AccessPointName}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Date column -->
+                    <GridViewColumn Header="Date">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EventDate}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Keycard column -->
+                    <GridViewColumn Header="Keycard">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding KeycardSerial}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Firstname column -->
+                    <GridViewColumn Header="Firstname">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Firstname}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Lastname column -->
+                    <GridViewColumn Header="Lastname">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Lastname}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Attempt column -->
+                    <GridViewColumn Header="Attempt">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding AccessResult}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- No. attempts column -->
+                    <GridViewColumn Header="No. attempts">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NumberOfScans}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Padding="0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+
+
     </Grid>
 </UserControl>
