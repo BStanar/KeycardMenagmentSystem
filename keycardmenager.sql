@@ -4,6 +4,7 @@
 --
 -- Host: 127.0.0.1
 -- Generation Time: Feb 22, 2024 at 03:48 PM
+
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,10 +41,12 @@ CREATE TABLE `accesspoint` (
 INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
 (1, 'Main entrance', '1'),
 
+
 (2, 'Exit ', '2'),
 (3, 'Cash register', '3'),
 (4, 'Canteen', '4'),
 (5, 'Server room', '5');
+
 
 -- --------------------------------------------------------
 
@@ -189,6 +192,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
 
+
 (1, 'marko', 'marko@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Marko', 'Marković', '2024-02-01', 'Employee'),
 (2, 'jelena', 'jelena@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
 (3, 'nikola', 'nikola@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
@@ -201,6 +205,7 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `
 (10, 'luka', 'luka@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Luka', 'Lukić', '2024-02-10', 'Employee'),
 (11, 'sara', 'sara@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Sara', 'Sarić', '2024-02-11', 'Employee'),
 (12, 'petar', 'petar@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Petar', 'Petrić', '2024-02-12', 'Manager');
+
 
 
 --
