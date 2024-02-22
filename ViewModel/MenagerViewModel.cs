@@ -1,4 +1,6 @@
-﻿using KeycardMenagmentSystem.Commands;
+﻿using KeycardManagmentSystem.Commands;
+using KeycardMenagmentSystem.Commands;
+using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Store;
 using KeycardMenagmentSystem.View;
 using System;
@@ -16,14 +18,15 @@ namespace KeycardMenagmentSystem.ViewModel
         public ICommand LogOutCommand { get; }
         public ICommand EmployeesCommand { get; }
         public ICommand KeycardsCommand { get; }
-        private readonly int _userID;
-        public int UserID() { return _userID; }
-        public ManagerViewModel(int userID, NavigateStore navigationStore)
+        public ICommand AccessPointCommand { get; }
+        private readonly Users _user;
+        public ManagerViewModel(Users user, NavigateStore navigationStore)
         {
-            _userID = userID;
+            _user = user;
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-            EmployeesCommand = new NavigateManagerToEmployeesCommand(_userID, navigationStore);
-            KeycardsCommand = new NavigateManagerToKeycardsCommand(_userID, navigationStore) ;
+            EmployeesCommand = new NavigateManagerToEmployeesCommand(_user, navigationStore);
+            KeycardsCommand = new NavigateManagerToKeycardsCommand(_user, navigationStore) ;
+            AccessPointCommand = new NavigateToAccessPointViewCommand(_user, navigationStore);
         }
 
     }

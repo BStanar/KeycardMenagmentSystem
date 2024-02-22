@@ -1,4 +1,5 @@
 ﻿using KeycardMenagmentSystem.Commands;
+using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Store;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,14 @@ namespace KeycardMenagmentSystem.ViewModel
 {
     public class EmployeeViewModel : ViewModelBase
     {
-        private readonly int _userID;
+        private readonly Users _user;
 
         public ICommand LogOutCommand { get; }
         
-        public EmployeeViewModel(int userID, NavigateStore navigationStore)
+        public EmployeeViewModel(Users user, NavigateStore navigationStore)
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-            _userID = userID;
+            _user = user;
         }
     }
 }

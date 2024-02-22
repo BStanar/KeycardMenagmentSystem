@@ -19,11 +19,14 @@
             <DataTemplate DataType="{x:Type viewmodels:EmployeeViewModel}">
                 <views:EmployeeView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
-                <views:EmployeeView/>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:KeycardsViewModel}">
                 <views:KeycardsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AccessPointsViewModel}">
+                <views:APMenagmentView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
+                <views:EMMenagmentView/>
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>

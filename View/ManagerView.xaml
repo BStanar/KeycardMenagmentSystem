@@ -30,7 +30,7 @@
 
             <Button Grid.Row="0" Margin="20" Background="#4285F4"  Command="{Binding EmployeesCommand}" Content="Employees" Cursor="Hand" FontWeight="Bold" Foreground="White" />
             <Button Grid.Row="1" Margin="20" Background="#4285F4"  Command="{Binding KeycardsCommand}" Content="Keycards" Cursor="Hand" FontWeight="Bold" Foreground="White" />
-            <Button Grid.Row="2" Margin="20" Background="#4285F4"  Command="{Binding AccesPointCommand}" Content="Access points" Cursor="Hand" FontWeight="Bold" Foreground="White" />
+            <Button Grid.Row="2" Margin="20" Background="#4285F4"  Command="{Binding AccessPointCommand}" Content="Access points" Cursor="Hand" FontWeight="Bold" Foreground="White" />
             <Button Grid.Row="5" Margin="20" Background="#f45742"  Command="{Binding LogOutCommand}" Content="Log out" Cursor="Hand" FontWeight="Bold" Foreground="White" />
         </Grid>
         <local:AccesPoint Grid.Column="1" Grid.Row="1"/>

@@ -1,4 +1,5 @@
-﻿using KeycardMenagmentSystem.Store;
+﻿using KeycardMenagmentSystem.Model;
+using KeycardMenagmentSystem.Store;
 using KeycardMenagmentSystem.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,18 @@ namespace KeycardMenagmentSystem.Commands
 {
     public class NavigateManagerToEmployeesCommand : CommandBase
     {
-        private readonly int _userID;
+        private readonly Users _user;
         private readonly NavigateStore _navigationStore;
 
-        public NavigateManagerToEmployeesCommand(int userID, NavigateStore navigationStore)
+        public NavigateManagerToEmployeesCommand(Users user, NavigateStore navigationStore)
         {
-            _userID = userID;
+            _user = user;
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new EmployeesViewModel(_userID, _navigationStore);
+            _navigationStore.CurrentViewModel = new EmployeesViewModel(_user, _navigationStore);
         }
     }
 }
