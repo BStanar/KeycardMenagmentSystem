@@ -41,10 +41,6 @@ namespace KeycardMenagmentSystem.ViewModel
                 OnPropertyChanged(nameof(Password));
             }
         }
-        private string HashedPassword
-        {
-            get { return _hashedPassword; }
-        }
         private string _statusMessage;
         public string StatusMessage
         {

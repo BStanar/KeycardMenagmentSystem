@@ -31,7 +31,7 @@
             <!--<local:AccesPoint Margin="0,0,-295,32"></local:AccesPoint>-->
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
-            MaxWidth="500" Grid.ColumnSpan="2" Margin="71,0,1027,0">
+            MaxWidth="500" Margin="0,48,69,-5">
             <Button Margin="0" 
              Background="#4285F4"
              Command="{Binding AccessPointsCommand}"
@@ -55,7 +55,7 @@
              FontWeight="Bold"
              Foreground="White" />
             <Button
-             Margin="0 370"   
+             Margin="0 520"   
              Background="#ED7D31"
              Command="{Binding LogOutCommand}"
              Content="Log out"
