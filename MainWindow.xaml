@@ -22,6 +22,9 @@
             <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
                 <views:EmployeesView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:KeycardsViewModel}">
+                <views:KeycardsView/>
+            </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
 </Window>
