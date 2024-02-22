@@ -3,9 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 11:37 AM
+-- Generation Time: Feb 22, 2024 at 03:48 PM
+
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,11 +40,13 @@ CREATE TABLE `accesspoint` (
 
 INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
 (1, 'Main entrance', '1'),
-(2, 'Back entrance', '2'),
-(3, 'Storage room', '3'),
+
+
+(2, 'Exit ', '2'),
+(3, 'Cash register', '3'),
 (4, 'Canteen', '4'),
-(5, 'Server room', '5'),
-(6, 'Roof', '6');
+(5, 'Server room', '5');
+
 
 -- --------------------------------------------------------
 
@@ -156,7 +159,7 @@ CREATE TABLE `log` (
 --
 
 INSERT INTO `log` (`id`, `accesspoint_id`, `keycard_id`, `user_id`, `eventdate`, `successful`, `number_of_scans`) VALUES
-(1, 1, 1, 1, '2024-02-21 08:00:00', 1, 1),
+(1, 1, 1, 1, '2024-02-21 08:00:00', 0, 1),
 (2, 1, 2, 2, '2024-02-21 08:05:00', 1, 1),
 (3, 3, 3, 3, '2024-02-21 08:10:00', 1, 1),
 (4, 2, 4, 4, '2024-02-21 08:15:00', 1, 1),
@@ -188,18 +191,22 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
-(1, 'marko', 'marko@example.com', 'password123', 'Marko', 'Marković', '2024-02-01', 'Manager'),
-(2, 'jelena', 'jelena@example.com', 'password123', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
-(3, 'nikola', 'nikola@example.com', 'password123', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
-(4, 'ana', 'ana@example.com', 'password123', 'Ana', 'Anić', '2024-02-04', 'Employee'),
-(5, 'ivan', 'ivan@example.com', 'password123', 'Ivan', 'Ivanić', '2024-02-05', 'Employee'),
-(6, 'marija', 'marija@example.com', 'password123', 'Marija', 'Marijić', '2024-02-06', 'Employee'),
-(7, 'davor', 'davor@example.com', 'password123', 'Davor', 'Davorić', '2024-02-07', 'Employee'),
-(8, 'sonja', 'sonja@example.com', 'password123', 'Sonja', 'Sonjić', '2024-02-08', 'Employee'),
-(9, 'zoran', 'zoran@example.com', 'password123', 'Zoran', 'Zoranić', '2024-02-09', 'Employee'),
-(10, 'luka', 'luka@example.com', 'password123', 'Luka', 'Lukić', '2024-02-10', 'Employee'),
-(11, 'sara', 'sara@example.com', 'password123', 'Sara', 'Sarić', '2024-02-11', 'Employee'),
-(12, 'petar', 'petar@example.com', 'password123', 'Petar', 'Petrić', '2024-02-12', 'Employee');
+
+
+(1, 'marko', 'marko@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Marko', 'Marković', '2024-02-01', 'Employee'),
+(2, 'jelena', 'jelena@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
+(3, 'nikola', 'nikola@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
+(4, 'ana', 'ana@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Ana', 'Anić', '2024-02-04', 'Employee'),
+(5, 'ivan', 'ivan@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Ivan', 'Ivanić', '2024-02-05', 'Employee'),
+(6, 'marija', 'marija@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Marija', 'Marijić', '2024-02-06', 'Employee'),
+(7, 'davor', 'davor@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Davor', 'Davorić', '2024-02-07', 'Employee'),
+(8, 'sonja', 'sonja@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Sonja', 'Sonjić', '2024-02-08', 'Employee'),
+(9, 'zoran', 'zoran@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Zoran', 'Zoranić', '2024-02-09', 'Employee'),
+(10, 'luka', 'luka@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Luka', 'Lukić', '2024-02-10', 'Employee'),
+(11, 'sara', 'sara@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Sara', 'Sarić', '2024-02-11', 'Employee'),
+(12, 'petar', 'petar@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Petar', 'Petrić', '2024-02-12', 'Manager');
+
+
 
 --
 -- Indexes for dumped tables
