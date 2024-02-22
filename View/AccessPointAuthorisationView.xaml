@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.AccessPointAuthorisationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="5">
+            <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="#4285F4"
+            Text="Acces denied" 
+            HorizontalAlignment="Center"/>
+            <ListBox >
+                
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="5">
+            <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="#4285F4"
+            Text="Acces granted" 
+            HorizontalAlignment="Center"/>
+            <ListBox >
+
+            </ListBox>
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Column="1" 
+                        Margin="5"
+                        Grid.Row="1"
+                        VerticalAlignment="Center">
+                <Button  Padding="10"
+         Background="#4285F4"
+         Command="{Binding GrantAccess}"
+         Content="Grant acces >>"
+         Cursor="Hand"
+         FontWeight="Bold"
+         Foreground="White" 
+         />
+
+                <Button Margin="0,25,0,0" Padding="10"
+         Background="#f45742"
+         Command="{Binding GrantAccess}"
+         Content="Deny access"
+         Cursor="Hand"
+         FontWeight="Bold"
+         Foreground="White" />
+        </StackPanel>
+            
+            <StackPanel Grid.Row="2"
+                        VerticalAlignment="Center">
+                    <Button 
+                    Margin="0,25,0,0" 
+                    Padding="10"
+                    Background="#4285F4"
+                    Command="{Binding GrantAccess}"
+                    Content="Save"
+                    Cursor="Hand"
+                    FontWeight="Bold"
+                    Foreground="White" 
+                        VerticalAlignment="Center"/>      
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

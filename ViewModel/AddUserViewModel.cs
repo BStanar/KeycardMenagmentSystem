@@ -95,7 +95,7 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private void AddUser(object parameter)
         {
-            var newUser = new Users
+            /*var newUser = new Users
             {
                 Email = Email,
                 Password = Password,
@@ -104,12 +104,12 @@ namespace KeycardMenagmentSystem.ViewModel
                 StartOfEmployment = DateOfEmployment,
 
 
-            };
+            };*/
 
             UserService service = new UserService();
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            service.AddUser(newUser);
+            /*service.AddUser(newUser);*/
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
             StatusMessage = "User added successfully.";

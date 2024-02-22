@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
@@ -45,17 +46,12 @@ namespace KeycardMenagmentSystem.ViewModel
 
             SaveAccessPointCommand = new RelayCommand(async _ =>
             {
-
-                var newAccessPoint = new AccessPoint(APName, Serial); 
+                var newAccessPoint = new AccessPoint(APName, Serial);
                 await AddAccessPoint(newAccessPoint);
-
-                //treba zatvorit user mdoel
+                ClearFields(); // Ensure fields are cleared after adding.
             });
 
-            CancelCommand = new RelayCommand(_ =>
-            {
-                // treba zatvorit user model
-            });
+            CancelCommand = new RelayCommand(_ => ClearFields()); // Consider what "Cancel" should do, e.g., clear fields.
 
             SelectAccessPointCommand = new RelayCommand(SelectAccessPoint);
             LoadAccessPoints();
@@ -84,6 +80,9 @@ namespace KeycardMenagmentSystem.ViewModel
         {
             await _getAccessPointService.AddAccessPoint(accessPoint);
             AccessPoints.Add(accessPoint);
+
+            ClearFields();
+            LoadAccessPoints();
         }
 
 
@@ -91,6 +90,11 @@ namespace KeycardMenagmentSystem.ViewModel
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private void ClearFields()
+        {
+            Serial = string.Empty;
+            APName = string.Empty;
         }
     }
 }

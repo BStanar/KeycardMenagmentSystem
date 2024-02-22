@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2024 at 11:59 AM
+-- Generation Time: Feb 22, 2024 at 11:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,11 +38,12 @@ CREATE TABLE `accesspoint` (
 --
 
 INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
-(1, 'Glavni Ulaz', '1'),
-(2, 'Zadnji Ulaz ', '2'),
-(3, 'Blagajna', '3'),
-(4, 'Kantina', '4'),
-(5, 'Server soba', '5');
+(1, 'Main entrance', '1'),
+(2, 'Back entrance', '2'),
+(3, 'Storage room', '3'),
+(4, 'Canteen', '4'),
+(5, 'Server room', '5'),
+(6, 'Roof', '6');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,7 @@ INSERT INTO `log` (`id`, `accesspoint_id`, `keycard_id`, `user_id`, `eventdate`,
 (6, 1, 6, 6, '2024-02-21 08:25:00', 1, 1),
 (7, 2, 7, 7, '2024-02-21 08:30:00', 1, 1),
 (8, 2, 8, 8, '2024-02-21 08:35:00', 1, 1),
-(9, 4, 9, 9, '2024-02-21 08:40:00', 1, 1);
+(9, 6, 9, 9, '2024-02-21 08:40:00', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
-(1, 'marko', 'marko@example.com', 'password123', 'Marko', 'Marković', '2024-02-01', 'Employee'),
+(1, 'marko', 'marko@example.com', 'password123', 'Marko', 'Marković', '2024-02-01', 'Manager'),
 (2, 'jelena', 'jelena@example.com', 'password123', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
 (3, 'nikola', 'nikola@example.com', 'password123', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
 (4, 'ana', 'ana@example.com', 'password123', 'Ana', 'Anić', '2024-02-04', 'Employee'),
@@ -240,7 +241,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accesspoint`
 --
 ALTER TABLE `accesspoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `keycard`
