@@ -11,5 +11,10 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
         }
+
+        private void Logs_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }
