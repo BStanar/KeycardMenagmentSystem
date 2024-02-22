@@ -28,13 +28,14 @@ namespace KeycardMenagmentSystem.Model
         public string Lastname { get { return _lastName; } set { _lastName = value; } }
         public string Email { get { return _email; } set { _email = value; } }
         public int ID { get { return _id; } }
-        public string Password { get { return _password; } }
+        public string Password { get { return _password; } set { _password = value; } }
         public string Username { get { return _username; } }
         public string Role { get { return _role; }set { _role = value; } }
 
         public DateTime StartOfEmployment
         {
             get { return _startOfEmployment; }
+            set { _startOfEmployment = value; }
         }
 
         public Users(int id, string username, string email, string password, string firstName, string lastName, DateTime startOfEmployment, string role)
