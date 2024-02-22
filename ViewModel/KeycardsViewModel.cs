@@ -11,15 +11,19 @@ namespace KeycardMenagmentSystem.ViewModel
 {
     public class KeycardsViewModel : ViewModelBase
     {
+        private readonly  int _userID;
+
         public ICommand LogOutCommand { get; }
         public ICommand AccessPointsCommand { get; }
         public ICommand EmployeesCommand { get; }
-
-        public KeycardsViewModel(NavigateStore navigateStore) 
+        public int UserID() { return _userID; }
+        
+        public KeycardsViewModel(int userID, NavigateStore navigateStore) 
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigateStore);
-            EmployeesCommand = new NavigateManagerToEmployeesCommand(navigateStore);
-            AccessPointsCommand = new NavigateToManagerViewCommand(navigateStore);
+            EmployeesCommand = new NavigateManagerToEmployeesCommand(_userID, navigateStore);
+            AccessPointsCommand = new NavigateToManagerViewCommand(_userID, navigateStore);
+            _userID = userID;
         }
     }
 }

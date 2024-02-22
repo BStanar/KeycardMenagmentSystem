@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
@@ -15,11 +16,14 @@ namespace KeycardMenagmentSystem.ViewModel
         public ICommand LogOutCommand { get; }
         public ICommand EmployeesCommand { get; }
         public ICommand KeycardsCommand { get; }
-        public ManagerViewModel(NavigateStore navigationStore)
+        private readonly int _userID;
+        public int UserID() { return _userID; }
+        public ManagerViewModel(int userID, NavigateStore navigationStore)
         {
+            _userID = userID;
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
-            EmployeesCommand = new NavigateManagerToEmployeesCommand(navigationStore);
-            KeycardsCommand = new NavigateManagerToKeycardsCommand(navigationStore);
+            EmployeesCommand = new NavigateManagerToEmployeesCommand(_userID, navigationStore);
+            KeycardsCommand = new NavigateManagerToKeycardsCommand(_userID, navigationStore) ;
         }
 
     }
