@@ -80,12 +80,12 @@ namespace KeycardMenagmentSystem.ViewModel
 
                 if (user.Role == "Manager")
                 {
-                    NavigateToManagerViewCommand = new NavigateToManagerViewCommand(user.ID, _navigationStore);
+                    NavigateToManagerViewCommand = new NavigateToManagerViewCommand(user, _navigationStore);
                     NavigateToManagerViewCommand.Execute(this);
                 }
                 else if(user.Role=="Employee")
                 {
-                    NavigateToEmployeeViewCommand = new NavigateToEmployeeViewCommand(user.ID, _navigationStore);
+                    NavigateToEmployeeViewCommand = new NavigateToEmployeeViewCommand(user, _navigationStore);
                     NavigateToEmployeeViewCommand.Execute(this);
                 }
                

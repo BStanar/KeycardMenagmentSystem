@@ -1,6 +1,7 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Services;
+using KeycardMenagmentSystem.Store;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -9,7 +10,7 @@ using System.Xml.Linq;
 
 namespace KeycardMenagmentSystem.ViewModel
 {
-    internal class AccessPointsViewModel
+    internal class AccessPointsViewModel : ViewModelBase
     {
         private string _serial;
         public string Serial
@@ -34,10 +35,16 @@ namespace KeycardMenagmentSystem.ViewModel
         public ObservableCollection<AccessPoint> AccessPoints { get; }
         private readonly IGetAccessPointService _getAccessPointService;
 
+        private readonly Users _user;
+
         // Commands
         public ICommand SaveAccessPointCommand { get; }
         public ICommand CancelCommand { get; }
         public ICommand SelectAccessPointCommand { get; }
+        public AccessPointsViewModel(Users user, NavigateStore navigateStore)
+        {
+            _user = user;
+        }
 
         public AccessPointsViewModel(IGetAccessPointService getAccessPointService)
         {
@@ -86,11 +93,6 @@ namespace KeycardMenagmentSystem.ViewModel
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         private void ClearFields()
         {
             Serial = string.Empty;
