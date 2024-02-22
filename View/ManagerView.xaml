@@ -67,8 +67,6 @@
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-303,0">
             <local:Logs Loaded="Logs_Loaded" Width="607" HorizontalAlignment="Left"/>
-            <local:_2DPieChart Margin="532,44,294,10" Loaded="_2DPieChart_Loaded"/>
-            <local:PresentUsersPieGraph Margin="903,44,-78,10" Loaded="_2DPieChart_Loaded"/>
         </Grid>
 
     </Grid>

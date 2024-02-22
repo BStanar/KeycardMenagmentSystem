@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 03:48 PM
-
+-- Generation Time: Feb 22, 2024 at 06:01 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,13 +39,12 @@ CREATE TABLE `accesspoint` (
 
 INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
 (1, 'Main entrance', '1'),
-
-
 (2, 'Exit ', '2'),
 (3, 'Cash register', '3'),
 (4, 'Canteen', '4'),
-(5, 'Server room', '5');
-
+(5, 'Server room', '5'),
+(8, 'server2', 'asdasdasdasd'),
+(9, '', '');
 
 -- --------------------------------------------------------
 
@@ -172,6 +170,32 @@ INSERT INTO `log` (`id`, `accesspoint_id`, `keycard_id`, `user_id`, `eventdate`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `new_keycard_request`
+--
+
+CREATE TABLE `new_keycard_request` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `request_date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `one_time_request`
+--
+
+CREATE TABLE `one_time_request` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `accesspoint_id` int(11) NOT NULL,
+  `request_value` tinyint(1) NOT NULL COMMENT '0 = Pending, 1 = Approved',
+  `request_date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -191,8 +215,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) VALUES
-
-
 (1, 'marko', 'marko@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Marko', 'Marković', '2024-02-01', 'Employee'),
 (2, 'jelena', 'jelena@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Jelena', 'Jelenić', '2024-02-02', 'Employee'),
 (3, 'nikola', 'nikola@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Nikola', 'Nikolić', '2024-02-03', 'Employee'),
@@ -205,8 +227,6 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `name`, `lastname`, `
 (10, 'luka', 'luka@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Luka', 'Lukić', '2024-02-10', 'Employee'),
 (11, 'sara', 'sara@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Sara', 'Sarić', '2024-02-11', 'Employee'),
 (12, 'petar', 'petar@example.com', 'hLLP8rNyxHrLAscvpvCgTpwhrn8bBBI6QMrz0vmdcYA=', 'Petar', 'Petrić', '2024-02-12', 'Manager');
-
-
 
 --
 -- Indexes for dumped tables
@@ -235,6 +255,21 @@ ALTER TABLE `log`
   ADD KEY `fk_log_user` (`user_id`);
 
 --
+-- Indexes for table `new_keycard_request`
+--
+ALTER TABLE `new_keycard_request`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_new_keycard_request_user_id` (`user_id`);
+
+--
+-- Indexes for table `one_time_request`
+--
+ALTER TABLE `one_time_request`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_one_time_request_user_id` (`user_id`),
+  ADD KEY `fk_one_time_request_accesspoint_id` (`accesspoint_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -248,7 +283,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accesspoint`
 --
 ALTER TABLE `accesspoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `keycard`
@@ -261,6 +296,18 @@ ALTER TABLE `keycard`
 --
 ALTER TABLE `log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `new_keycard_request`
+--
+ALTER TABLE `new_keycard_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `one_time_request`
+--
+ALTER TABLE `one_time_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -279,12 +326,17 @@ ALTER TABLE `keycard`
   ADD CONSTRAINT `keycard_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `log`
+-- Constraints for table `new_keycard_request`
 --
-ALTER TABLE `log`
-  ADD CONSTRAINT `fk_log_accesspoint` FOREIGN KEY (`accesspoint_id`) REFERENCES `accesspoint` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_log_keycard` FOREIGN KEY (`keycard_id`) REFERENCES `keycard` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `new_keycard_request`
+  ADD CONSTRAINT `new_keycard_request_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `one_time_request`
+--
+ALTER TABLE `one_time_request`
+  ADD CONSTRAINT `one_time_request_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `one_time_request_ibfk_2` FOREIGN KEY (`accesspoint_id`) REFERENCES `accesspoint` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
