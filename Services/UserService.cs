@@ -1,4 +1,5 @@
 ﻿using KeycardMenagmentSystem.Model;
+using KeycardMenagmentSystem.Utility_Classes;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace KeycardMenagmentSystem.Services
 
         public async Task AddUser(Users user)
         {
+            Users userss = user;
             using (var connection = new MySqlConnection(connectionString))
             {
                 try
@@ -21,6 +23,9 @@ namespace KeycardMenagmentSystem.Services
 
                     var query = @"INSERT INTO `user` (`email`, `password`, `name`, `lastname`, `date_of_employment`, `role`) 
                                     VALUES (@email, @password, @name, @lastname, @startOfEmployment, @role);";
+
+                    
+                    
                     Console.WriteLine(query);
                     using (var cmd = new MySqlCommand(query, connection))
                     {
