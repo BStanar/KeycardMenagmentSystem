@@ -86,7 +86,7 @@
                     Grid.Column="2"
                     Margin="40"
                     Background="#4285F4"
-                    Command="{Binding EmployeesCommand}"
+                    Command="{Binding TransferLogToNewCard}"
                     Content="Assign user"
                     Cursor="Hand"
                     FontWeight="Bold"

@@ -28,6 +28,15 @@
             <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
                 <v:EMMenagmentView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AddNewKeycardViewModel}">
+                <views:AddNewCardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AssignUserToKeycardViewModel}">
+                <views:AssignUserToKeycard/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:TransferLogsToNewCardViewModel}">
+                <views:TransferLogsToNewCardView/>
+            </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
 </Window>

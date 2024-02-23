@@ -16,7 +16,24 @@ namespace KeycardMenagmentSystem.ViewModel
     public class KeycardsViewModel : ViewModelBase
     {
         private readonly ObservableCollection<Keycard> _allAccessLogs;
-
+        
+        public ICommand LogOutCommand { get; }
+        public ICommand AccessPointsCommand { get; }
+        public ICommand EmployeesCommand { get; }
+        public ICommand AddNewKeycard { get; }
+        public ICommand AssignUserToKeycard { get; }
+        public ICommand TranswerLogToNewKeycard { get; }
+        public KeycardsViewModel(Users user, NavigateStore navigateStore)
+        { 
+            _user = user;
+            LogOutCommand = new NavigateToLoginViewCommand(navigateStore);
+            EmployeesCommand = new NavigateManagerToEmployeesCommand(_user, navigateStore);
+            AccessPointsCommand = new NavigateToManagerViewCommand(_user, navigateStore);
+            AddNewKeycard = new NavigateToAddNewKeycardCommand(_user, navigateStore);
+            AssignUserToKeycard = new NavigateToAssignUserToKeycard(_user, navigateStore);
+            TranswerLogToNewKeycard = new NavigateTransferLogToNewKeycardCommand(_user, navigateStore);
+}
+        }
         private readonly ObservableCollection<Keycard> _accessLog;
         public IEnumerable<Keycard> AccessLogs => _accessLog;
 
@@ -38,6 +55,8 @@ namespace KeycardMenagmentSystem.ViewModel
             {
                 Keycards.Add(accessPoint);
             }
+
         }
+
     }
 }
