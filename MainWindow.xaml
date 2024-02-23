@@ -11,7 +11,7 @@
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <v:KeycardsView/>
+                <v:LoginScreen/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
                 <v:ManagerView/>

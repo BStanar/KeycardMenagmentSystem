@@ -37,7 +37,7 @@
                     Cursor="Hand"
                     FontWeight="Bold"
                     Foreground="White" />
-
+            
             <Button Grid.Row="2"
                     Margin="20"
                     Background="#4285F4"
@@ -68,10 +68,11 @@
                     Margin="40"
                     Background="#4285F4"
                     Command="{Binding KeycardsCommand}"
-                    Content="Keycards"
+                    Content="Keycard list"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click" />
 
             <Button Grid.Row="0"
                     Grid.Column="1"

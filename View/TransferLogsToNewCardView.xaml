@@ -68,7 +68,7 @@
                     Margin="40"
                     Background="#4285F4"
                     Command="{Binding KeycardsCommand}"
-                    Content="Keycards"
+                    Content="Keycard list"
                     Cursor="Hand"
                     FontWeight="Bold"
                     Foreground="White" />
@@ -112,6 +112,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -141,7 +142,7 @@
                 </Grid>
                 <Grid Grid.Row="2"
                       Grid.Column="1">
-                    <TextBlock Margin="0,30,0,0"
+                    <TextBlock Margin="0,20,0,0"
                                Foreground="Gray"
                                Text="Assign to user" />
 
@@ -151,6 +152,17 @@
                              Text="{Binding UserId, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
                 <Grid Grid.Row="3"
+                      Grid.Column="1">
+                    <TextBlock Margin="0,20,0,0"
+                               Foreground="Gray"
+                               Text="Status" />
+
+                    <TextBox Margin="0,10,0,0"
+                             Padding="5,10"
+                             Height="35px"
+                             Text="{Binding UserId, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+                <Grid Grid.Row="4"
                       Grid.Column="1"
                       Margin="10">
                     <Grid.ColumnDefinitions>

@@ -38,7 +38,6 @@
                     FontWeight="Bold"
                     Foreground="White" />
 
-            
             <Button Grid.Row="2"
                     Margin="20"
                     Background="#4285F4"
@@ -63,15 +62,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="40"
-                    Background="#4285F4"
-                    Command="{Binding KeycardsLogs}"
-                    Content="Keycard Logs"
-                    Cursor="Hand"
-                    FontWeight="Bold"
-                    Foreground="White" />
             <Button Grid.Row="0"
                     Grid.Column="1"
                     Margin="40"
