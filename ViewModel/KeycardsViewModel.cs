@@ -30,5 +30,6 @@ namespace KeycardMenagmentSystem.ViewModel
             AssignUserToKeycard = new NavigateToAssignUserToKeycard(_user, navigateStore);
             TranswerLogToNewKeycard = new NavigateTransferLogToNewKeycardCommand(_user, navigateStore);
         }
+
     }
 }
