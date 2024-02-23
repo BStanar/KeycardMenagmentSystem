@@ -23,7 +23,7 @@
                     <GridViewColumn Header="Date">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding EventDate}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding EventDate, StringFormat=dd MMM yyyy HH:mm}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
