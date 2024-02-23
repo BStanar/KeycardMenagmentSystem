@@ -1,5 +1,6 @@
 ﻿using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Model;
+using KeycardMenagmentSystem.Services;
 using KeycardMenagmentSystem.Store;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,11 @@ namespace KeycardMenagmentSystem.ViewModel
         private readonly Users _user;
 
         public ICommand LogOutCommand { get; }
-        
+
+        public string usernameEmployee => _user.Username;
+        public string nameEmployee => _user.FirstName;
+        public string cardNumberEmployee => _user.CardSerialNumber;
+
         public EmployeeViewModel(Users user, NavigateStore navigationStore)
         {
             LogOutCommand = new NavigateToLoginViewCommand(navigationStore);
