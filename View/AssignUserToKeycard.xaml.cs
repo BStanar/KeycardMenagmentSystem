@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KeycardManagmentSystem.View
+namespace KeycardMenagmentSystem.View
 {
     /// <summary>
     /// Interaction logic for AssignUserToKeycard.xaml

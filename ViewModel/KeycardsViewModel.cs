@@ -17,13 +17,18 @@ namespace KeycardMenagmentSystem.ViewModel
         public ICommand LogOutCommand { get; }
         public ICommand AccessPointsCommand { get; }
         public ICommand EmployeesCommand { get; }
-        
-        public KeycardsViewModel(Users user, NavigateStore navigateStore) 
-        {
+        public ICommand AddNewKeycard { get; }
+        public ICommand AssignUserToKeycard { get; }
+        public ICommand TranswerLogToNewKeycard { get; }
+        public KeycardsViewModel(Users user, NavigateStore navigateStore)
+        { 
+            _user = user;
             LogOutCommand = new NavigateToLoginViewCommand(navigateStore);
             EmployeesCommand = new NavigateManagerToEmployeesCommand(_user, navigateStore);
             AccessPointsCommand = new NavigateToManagerViewCommand(_user, navigateStore);
-            _user = user;
+            AddNewKeycard = new NavigateToAddNewKeycardCommand(_user, navigateStore);
+            AssignUserToKeycard = new NavigateToAssignUserToKeycard(_user, navigateStore);
+            TranswerLogToNewKeycard = new NavigateTransferLogToNewKeycardCommand(_user, navigateStore);
         }
     }
 }
