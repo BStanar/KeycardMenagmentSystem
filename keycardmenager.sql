@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 06:01 PM
+-- Generation Time: Feb 23, 2024 at 01:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,8 +43,7 @@ INSERT INTO `accesspoint` (`id`, `name`, `serial`) VALUES
 (3, 'Cash register', '3'),
 (4, 'Canteen', '4'),
 (5, 'Server room', '5'),
-(8, 'server2', 'asdasdasdasd'),
-(9, '', '');
+(8, 'server2', 'asdasdasdasd');
 
 -- --------------------------------------------------------
 
@@ -107,34 +106,35 @@ INSERT INTO `accesspoint_keycard` (`accesspoint_id`, `keycard_id`) VALUES
 CREATE TABLE `keycard` (
   `id` int(11) NOT NULL,
   `serial_number` varchar(255) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `activated` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `keycard`
 --
 
-INSERT INTO `keycard` (`id`, `serial_number`, `user_id`) VALUES
-(1, 'KC1001', 1),
-(2, 'KC1002', 2),
-(3, 'KC1003', 3),
-(4, 'KC1004', 4),
-(5, 'KC1005', 5),
-(6, 'KC1006', 6),
-(7, 'KC1007', 7),
-(8, 'KC1008', 8),
-(9, 'KC1009', 9),
-(10, 'KC1010', 10),
-(11, 'KC1011', 11),
-(12, 'KC1012', 12),
-(13, 'KC1013', NULL),
-(14, 'KC1014', NULL),
-(15, 'KC1015', NULL),
-(16, 'KC1016', NULL),
-(17, 'KC1017', NULL),
-(18, 'KC1018', NULL),
-(19, 'KC1019', NULL),
-(20, 'KC1020', NULL);
+INSERT INTO `keycard` (`id`, `serial_number`, `user_id`, `activated`) VALUES
+(1, 'KC1001', 1, 1),
+(2, 'KC1002', 2, 1),
+(3, 'KC1003', 3, 1),
+(4, 'KC1004', 4, 1),
+(5, 'KC1005', 5, 1),
+(6, 'KC1006', 6, 1),
+(7, 'KC1007', 7, 1),
+(8, 'KC1008', 8, 1),
+(9, 'KC1009', 9, 1),
+(10, 'KC1010', 10, 1),
+(11, 'KC1011', 11, 1),
+(12, 'KC1012', 12, 1),
+(13, 'KC1013', NULL, 0),
+(14, 'KC1014', NULL, 0),
+(15, 'KC1015', NULL, 0),
+(16, 'KC1016', NULL, 0),
+(17, 'KC1017', NULL, 0),
+(18, 'KC1018', NULL, 0),
+(19, 'KC1019', NULL, 0),
+(20, 'KC1020', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -283,7 +283,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accesspoint`
 --
 ALTER TABLE `accesspoint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `keycard`

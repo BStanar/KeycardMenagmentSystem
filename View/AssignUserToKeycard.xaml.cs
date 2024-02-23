@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace KeycardMenagmentSystem.View
 {
     /// <summary>
@@ -24,6 +25,10 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
         }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Add your logic here for what should happen when the button is clicked
+            MessageBox.Show("Button clicked!");
+        }
     }
 }
