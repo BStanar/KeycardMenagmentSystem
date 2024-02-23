@@ -27,7 +27,7 @@ namespace KeycardMenagmentSystem.View
         public AccesPoint()
         {
             InitializeComponent();
-            this.DataContext = new AccessPointsViewModel(new GetAccessPointsService());
+            this.DataContext = new AccessPointsViewModel();
 
 
         }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
              xmlns:components="clr-namespace:KeycardMenagmentSystem.CustomControlls"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800">
+             d:DesignHeight="190" d:DesignWidth="800">
     <Border BorderThickness="2" BorderBrush="Black">
     <Grid >
 

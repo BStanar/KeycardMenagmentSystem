@@ -1,25 +1,189 @@
 ﻿<UserControl x:Class="KeycardMenagmentSystem.View.Logs"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
     <Grid>
-        <ListView Name="LogList" ItemsSource="{Binding AccessLogs}" BorderBrush="Black">
-			<ListView.ItemContainerStyle>
-				<Style TargetType="ListViewItem">
-					<Setter Property="HorizontalContentAlignment" Value="Center" />
-				</Style>
-			</ListView.ItemContainerStyle>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="2"
+                BorderBrush="Black">
+            <Grid>
+
+                <ScrollViewer Grid.Row="1"
+                              Height="110"
+                              Margin="0 10 0 0"
+                              VerticalScrollBarVisibility="Auto">
+
+                    <ItemsControl ItemsSource="{Binding AccessPoints}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="150"
+                                        Height="100"
+                                        Margin="5"
+                                        BorderBrush="LightGray"
+                                        BorderThickness="1"
+                                        CornerRadius="5">
+
+                                    <Button Command="{Binding DataContext.SelectAccessPointCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                            CommandParameter="{Binding Name}">
+
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0"
+                                                       FontSize="24"
+                                                       FontWeight="Bold"
+                                                       Foreground="#4285F4"
+                                                       Text="{Binding Name}"
+                                                       HorizontalAlignment="Center"
+                                                       TextWrapping="Wrap" />
+
+                                            <Image Grid.Column="1"
+                                                   Margin="5">
+                                                <Image.Source>
+                                                    <DrawingImage>
+                                                        <DrawingImage.Drawing>
+                                                            <GeometryDrawing Brush="#4285F4"
+                                                                             Geometry="M120-120v-80h80v-640h400v40h160v600h80v80H680v-600h-80v600H120Zm160-640v560-560Zm160 320q17 0 28.5-11.5T480-480q0-17-11.5-28.5T440-520q-17 0-28.5 11.5T400-480q0 17 11.5 28.5T440-440ZM280-200h240v-560H280v560Z" />
+                                                        </DrawingImage.Drawing>
+                                                    </DrawingImage>
+                                                </Image.Source>
+                                            </Image>
+                                        </Grid>
+                                    </Button>
+                                </Border>
+
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <Popup x:Name="MyPopup"
+                       Placement="Center"
+                       Width="200"
+                       Height="100"
+                       AllowsTransparency="True"
+                       PopupAnimation="Fade">
+                    <Border Background="LightGray"
+                            CornerRadius="5">
+                        <TextBlock x:Name="PopupTextBlock"
+                                   Text="Popup Text"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" />
+                    </Border>
+                </Popup>
+
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="5 5 5 5">
+
+                <TextBlock Foreground="Gray"
+                           Text="Accespoint" />
+
+                <TextBox  Height="25px"
+                          Text="{Binding SelectedAccessPointName, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="1" />
+            </Grid>
+
+            <Grid Margin="5 5 5 5"
+                  Grid.Column="1">
+
+                <TextBlock Foreground="Gray"
+                           Text="From date" />
+
+                <DatePicker  Height="25px"
+                             Text="{Binding FromDate, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="1" />
+            </Grid>
+            <Grid Margin="5 5 5 5"
+                  Grid.Column="2">
+
+                <TextBlock Foreground="Gray"
+                           Text="To date" />
+
+                <DatePicker  Height="25px"
+                             Text="{Binding ToDate, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="1" />
+            </Grid>
+
+
+            <Grid Margin="5 5 5 5"
+                  Grid.Column="4">
+
+                <TextBlock Foreground="Gray"
+                           Text="Lastname" />
+
+                <TextBox  Height="25px"
+                          Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="1" />
+            </Grid>
+            <Grid Margin="5 5 5 5"
+                  Grid.Column="5">
+
+                <TextBlock Foreground="Gray"
+                           Text="Attempt" />
+
+                <TextBox  Height="25px"
+                          Text="{Binding Attempt, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="1" />
+            </Grid>
+            <Grid Margin="5 5 5 5"
+                  Grid.Column="3">
+
+                <TextBlock Foreground="Gray"
+                           Text="Firstname" />
+
+                <TextBox  Height="25px"
+                          Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="1" />
+            </Grid>
+        </Grid>
+
+
+
+
+        <ListView Name="LogList"
+                  ItemsSource="{Binding AccessLogs}"
+                  BorderBrush="Black"
+                  Grid.Row="3">
             <ListView.View>
                 <GridView>
                     <!-- Access point column -->
                     <GridViewColumn Header="Access point">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding AccessPointName}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding AccessPointName}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -28,7 +192,10 @@
                     <GridViewColumn Header="Date">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding EventDate, StringFormat=dd MMM yyyy HH:mm}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding EventDate}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -37,7 +204,10 @@
                     <GridViewColumn Header="Keycard">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding KeycardSerial}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding KeycardSerial}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -46,7 +216,10 @@
                     <GridViewColumn Header="Firstname">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Firstname}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Firstname}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -55,7 +228,10 @@
                     <GridViewColumn Header="Lastname">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Lastname}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Lastname}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -64,7 +240,10 @@
                     <GridViewColumn Header="Attempt">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding AccessResult}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding AccessResult}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -73,12 +252,19 @@
                     <GridViewColumn Header="No. attempts">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding NumberOfScans}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Padding="0"/>
+                                <TextBlock Text="{Binding NumberOfScans}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="0"
+                                           Padding="0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+
+
     </Grid>
 </UserControl>

@@ -69,7 +69,7 @@
             <StackPanel Grid.Row="2"
                         VerticalAlignment="Center">
                     <Button 
-                    Margin="0,25,0,0" 
+                    Margin="5,25,5,0" 
                     Padding="10"
                     Background="#4285F4"
                     Command="{Binding GrantAccess}"

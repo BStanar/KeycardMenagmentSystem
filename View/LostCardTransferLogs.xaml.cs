@@ -1,6 +1,4 @@
-﻿using KeycardMenagmentSystem.Services;
-using KeycardMenagmentSystem.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KeycardMenagmentSystem.View
+namespace KeycardManagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for AddAccesPointView.xaml
+    /// Interaction logic for LostCardTransferLogs.xaml
     /// </summary>
-    public partial class AddAccesPointView : UserControl
+    public partial class LostCardTransferLogs : UserControl
     {
-        public AddAccesPointView()
+        public LostCardTransferLogs()
         {
             InitializeComponent();
-            this.DataContext = new AccessPointsViewModel();
         }
     }
 }
