@@ -22,7 +22,7 @@ namespace KeycardManagmentSystem.Commands
         }
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new AccessPointsViewModel(_user, _navigationStore);
+           /* _navigationStore.CurrentViewModel = new AccessPointsViewModel( );*/
         }
     }
 }

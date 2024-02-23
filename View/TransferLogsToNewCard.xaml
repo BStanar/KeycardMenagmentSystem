@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="KeycardManagmentSystem.View.AddNewKeycardView"
+﻿<UserControl x:Class="KeycardMenagmentSystem.View.TransferLogsToNewCard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KeycardManagmentSystem.View"
+             xmlns:local="clr-namespace:KeycardMenagmentSystem.View"
              mc:Ignorable="d"
-            d:Height="1080"
+             d:Height="1080"
              d:Width="1920">
     <Grid>
         <Grid.RowDefinitions>
@@ -72,13 +72,13 @@
                     Cursor="Hand"
                     FontWeight="Bold"
                     Foreground="White" />
-            
+
             <Button Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     Margin="40"
                     Background="#4285F4"
-                    Command="{Binding AssignUserToKeycard}"
-                    Content="Asign user"
+                    Command="{Binding AddNewKeycard}"
+                    Content="Add new Keycard"
                     Cursor="Hand"
                     FontWeight="Bold"
                     Foreground="White" />
@@ -87,12 +87,13 @@
                     Margin="40"
                     Background="#4285F4"
                     Command="{Binding EmployeesCommand}"
-                    Content="Transfer log to new keycard"
+                    Content="Assign user"
                     Cursor="Hand"
                     FontWeight="Bold"
                     Foreground="White" />
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Row="2"
+              Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="3*" />
@@ -104,7 +105,8 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="1" Grid.Column="1">
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -121,11 +123,13 @@
                 <TextBlock FontSize="24"
                            FontWeight="Bold"
                            Foreground="#4285F4"
-                           Text="Add new card"
-                           HorizontalAlignment="Center" VerticalAlignment="Center"
-                           Grid.Column="1"/>
+                           Text="Asign user to a keycard"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Grid.Column="1" />
 
-                <Grid Grid.Row="1" Grid.Column="1">
+                <Grid Grid.Row="1"
+                      Grid.Column="1">
                     <TextBlock Margin="0,30,0,0"
                                Foreground="Gray"
                                Text="Keycard serial number" />
@@ -144,9 +148,11 @@
                     <TextBox Margin="0,10,0,0"
                              Padding="5,10"
                              Height="35px"
-                             Text="{Binding UserId, UpdateSourceTrigger=PropertyChanged}" /> 
+                             Text="{Binding UserId, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
-                <Grid Grid.Row="3" Grid.Column="1" Margin="10">
+                <Grid Grid.Row="3"
+                      Grid.Column="1"
+                      Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
