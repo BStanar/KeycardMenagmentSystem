@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for APMenagmentView.xaml
+    /// Interaction logic for AddNewCardViewModel.xaml
     /// </summary>
-    public partial class APMenagmentView : UserControl
+    public partial class AddNewCardView : UserControl
     {
-        public APMenagmentView()
+        public AddNewCardView()
         {
             InitializeComponent();
         }

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeycardMenagmentSystem"
         xmlns:views="clr-namespace:KeycardMenagmentSystem.View"
-        xmlns:v="clr-namespace:KeycardManagmentSystem.View"
+        xmlns:v="clr-namespace:KeycardMenagmentSystem.View"
         xmlns:viewmodels="clr-namespace:KeycardMenagmentSystem.ViewModel"
         mc:Ignorable="d"
         Title="AccessControl system" WindowState="Maximized" MinHeight="800" MinWidth="1000">
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <v:AddNewKeycardView/>
+                <views:LoginScreen/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
                 <views:ManagerView/>
