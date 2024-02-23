@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace KeycardMenagmentSystem.Services
 {
-    internal interface IGetAccessLogs
+    public interface IGetKeycardsService
     {
-        public Task<List<AccessLog>> GetAccesLogs();
-        public Task<List<AccessLog>> GetAccesLogs(int userID);
+
+        public Task<List<Keycard>> GetAccessLogsService();
     }
 }

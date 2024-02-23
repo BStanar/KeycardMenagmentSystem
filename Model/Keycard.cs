@@ -18,7 +18,8 @@ namespace KeycardMenagmentSystem.Model
         public string SerialCode { get { return _serialCode; } set { _serialCode = value; } }
         public int UserId { get { return _userId; } set { _userId = value; } }
         public bool Activated { get { return _activated; } set { _activated = value; } }
-
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
         public Keycard(int keycardID, string serialCode, int idUser)
         {
             _activated = false;
@@ -37,6 +38,16 @@ namespace KeycardMenagmentSystem.Model
             _activated = false;
             SerialCode = serialCode;
         }
+        public Keycard(int keycardID, string serialCode, int userId, bool activated, string firstname, string lastname)
+        {
+            KeycardID = keycardID;
+            SerialCode = serialCode;
+            UserId = userId;
+            Activated = activated;
+            Firstname = firstname;
+            Lastname = lastname;
+        }
+
 
     }
 

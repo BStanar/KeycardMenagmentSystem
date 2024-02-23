@@ -38,14 +38,7 @@
                     FontWeight="Bold"
                     Foreground="White" />
 
-            <Button Grid.Row="1"
-                    Margin="20"
-                    Background="#4285F4"
-                    Command="{Binding KeycardsCommand}"
-                    Content="Keycards"
-                    Cursor="Hand"
-                    FontWeight="Bold"
-                    Foreground="White" />
+            
             <Button Grid.Row="2"
                     Margin="20"
                     Background="#4285F4"
@@ -107,5 +100,55 @@
                     FontWeight="Bold"
                     Foreground="White" />
         </Grid>
+        <ListView Name="Keycards"
+                  ItemsSource="{Binding Keycards}"
+                  BorderBrush="Black"
+                  Grid.Row="3"
+                  Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <!-- Keycard column -->
+                    <GridViewColumn Header="Keycard">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding SerialCode}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Firstname column -->
+                    <GridViewColumn Header="Firstname">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Firstname}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Lastname column -->
+                    <GridViewColumn Header="Lastname">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Lastname}"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Activated column -->
+                    
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
+    
 </UserControl>

@@ -23,7 +23,7 @@ namespace KeycardMenagmentSystem.Commands
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new KeycardsViewModel(_user, _navigationStore);
+            /*_navigationStore.CurrentViewModel = new KeycardsViewModel(_user, _navigationStore);*/
         }
     }
 }
