@@ -27,6 +27,12 @@ namespace KeycardMenagmentSystem.View
             DataContext = new AddUserViewModel();
 
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ManagerView keycardsView = new ManagerView();
+            this.Content = keycardsView;
+        }
     }
 }
 

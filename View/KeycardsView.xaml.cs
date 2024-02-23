@@ -55,5 +55,37 @@ namespace KeycardMenagmentSystem.View
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            AddUserView keycardsView = new AddUserView();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddAccesPointView keycardsView = new AddAccesPointView();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AddNewCardView keycardsView = new AddNewCardView();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            AssignUserToKeycard keycardsView = new AssignUserToKeycard();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            TransferLogsToNewCardView keycardsView = new TransferLogsToNewCardView();
+            this.Content = keycardsView;
+
+        }
     }
 }

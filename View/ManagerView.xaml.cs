@@ -26,5 +26,24 @@ namespace KeycardMenagmentSystem.View
         {
 
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            KeycardsView keycardsView = new KeycardsView();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddAccesPointView keycardsView = new AddAccesPointView();
+            this.Content = keycardsView;
+        }
+
+        private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+            AddUserView keycardsView = new AddUserView();
+            this.Content = keycardsView;
+        }
     }
 }
