@@ -36,7 +36,8 @@
                     Content="Employees"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click" />
 
             <Button Grid.Row="1"
                     Margin="20"
@@ -45,15 +46,8 @@
                     Content="Keycards"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
-            <Button Grid.Row="2"
-                    Margin="20"
-                    Background="#4285F4"
-                    Command="{Binding AccesPointCommand}"
-                    Content="Access points"
-                    Cursor="Hand"
-                    FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_1" />
             <Button Grid.Row="5"
                     Margin="20"
                     Background="#f45742"
@@ -79,7 +73,8 @@
                     Content="Acces point logs"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_2" />
             <Button Grid.Row="0"
                     Grid.Column="1"
                     Margin="40"
@@ -88,16 +83,20 @@
                     Content="Add new acces point"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_4" />
             <Button Grid.Row="0"
                     Grid.Column="2"
-                    Margin="40"
+                    Height="0"
+                    Width="0"
+                    BorderBrush="Transparent"
                     Background="#4285F4"
                     Command="{Binding AssignUserToKeycard}"
-                    Content="Asign user"
+                    Content=""
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_3" />
            
         </Grid>
 

@@ -36,7 +36,8 @@
                     Content="Employees"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click" />
 
             <Button Grid.Row="2"
                     Margin="20"
@@ -45,7 +46,8 @@
                     Content="Access points"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_1" />
             <Button Grid.Row="5"
                     Margin="20"
                     Background="#f45742"
@@ -70,7 +72,8 @@
                     Content="Add new Keycard"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_2" />
             <Button Grid.Row="0"
                     Grid.Column="2"
                     Margin="40"
@@ -79,7 +82,8 @@
                     Content="Asign user"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_3" />
             <Button Grid.Row="0"
                     Grid.Column="3"
                     Margin="40"
@@ -88,7 +92,8 @@
                     Content="Transfer log to new keycard"
                     Cursor="Hand"
                     FontWeight="Bold"
-                    Foreground="White" />
+                    Foreground="White"
+                    Click="Button_Click_4" />
         </Grid>
         <ListView Name="Keycards"
                   ItemsSource="{Binding Keycards}"
