@@ -24,5 +24,6 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
         }
+
     }
 }
