@@ -18,9 +18,9 @@ namespace KeycardMenagmentSystem.View
     /// <summary>
     /// Interaction logic for TransferLogsToNewCard.xaml
     /// </summary>
-    public partial class TransferLogsToNewCard : UserControl
+    public partial class TransferLogsToNewCardView : UserControl
     {
-        public TransferLogsToNewCard()
+        public TransferLogsToNewCardView()
         {
             InitializeComponent();
         }
