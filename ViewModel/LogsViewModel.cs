@@ -86,6 +86,17 @@ namespace KeycardMenagmentSystem.ViewModel
                 _accessLog.Add(accesslog);
             }
         }
+        private async void LoadAccessLogs22()
+        {
+
+            var accessLogs = await _getAccessLogsService.GetAccesLogs();
+            _accessLog.Clear();
+            foreach (var accesslog in accessLogs)
+            {
+                _accessLog.Add(accesslog);
+            }
+            
+        }
 
 
         public string SelectedAccessPointName { get; set; }
@@ -112,7 +123,7 @@ namespace KeycardMenagmentSystem.ViewModel
 
             // Update your ObservableCollection or bindable list with the filtered results
             // This example clears and re-adds filtered items, which is not the most efficient method for large datasets.
-            _accessLog.Clear();
+            
             foreach (var log in filteredLogs)
             {
                 _accessLog.Add(log);
@@ -125,6 +136,7 @@ namespace KeycardMenagmentSystem.ViewModel
             SelectedAccessPointName = parameter as string;
             // Optionally, automatically trigger filtering upon selection
             FilterLogs();
+            
         }
 
         
