@@ -8,6 +8,11 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ListView Name="LogList" ItemsSource="{Binding AccessLogs}" BorderBrush="Black">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="ListViewItem">
+					<Setter Property="HorizontalContentAlignment" Value="Center" />
+				</Style>
+			</ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <!-- Access point column -->
@@ -75,7 +80,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
-
     </Grid>
 </UserControl>
