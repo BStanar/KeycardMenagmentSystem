@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace KeycardMenagmentSystem.View
 {
     /// <summary>
-    /// Interaction logic for TransferLogsToNewCard.xaml
+    /// Interaction logic for TransferLogsToNewCardView.xaml
     /// </summary>
     public partial class TransferLogsToNewCardView : UserControl
     {

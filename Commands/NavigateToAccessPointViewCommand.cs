@@ -9,7 +9,7 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KeycardManagmentSystem.Commands
+namespace KeycardMenagmentSystem.Commands
 {
     class NavigateToAccessPointViewCommand : CommandBase
     {
