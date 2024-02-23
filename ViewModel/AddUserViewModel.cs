@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using KeycardMenagmentSystem.Commands;
 using KeycardMenagmentSystem.Model;
@@ -30,7 +31,7 @@ namespace KeycardMenagmentSystem.ViewModel
             set
             {
                 _password = value;
-                _hashedPassword = PasswordHasher.HashPassword(value);
+                _hashedPassword = PasswordHasher.HashPassword(_password);
                 OnPropertyChanged("Password");
             }
         }
@@ -99,25 +100,35 @@ namespace KeycardMenagmentSystem.ViewModel
 
         private void AddUser(object parameter)
         {
-           var newUser = new Users
+            string role1;
+            if (IsManager) role1 = "Manager";
+            else role1 = "Employee";
+
+            var newUser = new Users
             {
                 Email = Email,
                 Password = _hashedPassword,
                 FirstName = Name,
                 Lastname = LastName,
                 StartOfEmployment = DateOfEmployment,
-
-
+                Role = role1
             };
 
-            UserService service = new UserService();
+            var result = MessageBox.Show("Are you sure you want to add this user?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+           
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("User Added");
+                UserService service = new UserService();
+                service.AddUser(newUser);
 
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            service.AddUser(newUser);
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-
-            StatusMessage = "User added successfully.";
-            ClearFields();
+                StatusMessage = "User added successfully.";
+                ClearFields();
+            }
+            else
+            {
+                StatusMessage = "User addition canceled.";
+            }
         }
 
         private bool CanAddUser(object parameter)
