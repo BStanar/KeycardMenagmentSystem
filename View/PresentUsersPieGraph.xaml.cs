@@ -1,5 +1,4 @@
-﻿using KeycardManagementSystem.Model;
-using KeycardMenagmentSystem.Model;
+﻿using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Services;
 using KeycardMenagmentSystem.ViewModel;
 using System;

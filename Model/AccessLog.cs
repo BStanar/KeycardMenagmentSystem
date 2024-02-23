@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KeycardManagementSystem.Model
+namespace KeycardMenagmentSystem.Model
 {
     public class AccessLog
     {

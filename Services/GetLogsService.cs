@@ -1,5 +1,4 @@
-﻿using KeycardManagementSystem.Model;
-using KeycardMenagmentSystem.Model;
+﻿using KeycardMenagmentSystem.Model;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeycardMenagmentSystem"
-        xmlns:views="clr-namespace:KeycardMenagmentSystem.View"
         xmlns:v="clr-namespace:KeycardMenagmentSystem.View"
         xmlns:viewmodels="clr-namespace:KeycardMenagmentSystem.ViewModel"
         mc:Ignorable="d"
@@ -12,22 +11,22 @@
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <views:LoginScreen/>
+                <v:KeycardsView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
-                <views:ManagerView/>
+                <v:ManagerView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:EmployeeViewModel}">
-                <views:EmployeeView/>
+                <v:EmployeeView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:KeycardsViewModel}">
-                <views:KeycardsView/>
+                <v:KeycardsView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:AccessPointsViewModel}">
-                <views:APMenagmentView/>
+                <v:APMenagmentView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:EmployeesViewModel}">
-                <views:EMMenagmentView/>
+                <v:EMMenagmentView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:AddNewKeycardViewModel}">
                 <views:AddNewCardView/>

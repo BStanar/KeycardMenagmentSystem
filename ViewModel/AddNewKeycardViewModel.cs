@@ -4,7 +4,6 @@ using System.Windows.Input;
 using KeycardMenagmentSystem.Services;
 using KeycardMenagmentSystem.Model;
 using KeycardMenagmentSystem.Commands;
-using KeycardManagmentSystem.Services;
 using KeycardMenagmentSystem.ViewModel;
 using KeycardMenagmentSystem.Store;
 
