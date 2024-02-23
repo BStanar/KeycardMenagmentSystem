@@ -16,6 +16,7 @@ namespace KeycardMenagmentSystem.Model
         private string _username;
         private DateTime _startOfEmployment;
         private string _role;
+        private string _cardSerialNumber;
 
         public Users() { }
         public string FirstName { get { return _firstName; } 
@@ -31,6 +32,7 @@ namespace KeycardMenagmentSystem.Model
         public string Password { get { return _password; }  set { _password = value; } }
         public string Username { get { return _username; } set { _username = value; } }
         public string Role { get { return _role; }set { _role = value; } }
+        public string CardSerialNumber { get { return _cardSerialNumber; } set { _cardSerialNumber = value; } }
 
         public DateTime StartOfEmployment
         {
@@ -48,7 +50,6 @@ namespace KeycardMenagmentSystem.Model
             this._password = password;
             this._username = username;
             this._startOfEmployment = startOfEmployment;
-            
         }
     }
 }

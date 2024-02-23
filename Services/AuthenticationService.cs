@@ -26,7 +26,7 @@ namespace KeycardMenagmentSystem.Services
                 {
                     await connection.OpenAsync();
                     var query = @"
-                    SELECT u.*
+                    SELECT *
                     FROM `user` u
                     LEFT JOIN `keycard` k ON u.`id` = k.`user_id`
                     WHERE (u.`username` = @identifier OR u.`email` = @identifier OR k.`serial_number` = @identifier)
@@ -49,6 +49,7 @@ namespace KeycardMenagmentSystem.Services
                             {
                                 user = new Users(Convert.ToInt32(reader["id"]), reader["username"].ToString(), reader["email"].ToString(), reader["password"].ToString(), reader["name"].ToString(),
                                      reader["lastname"].ToString(), Convert.ToDateTime(reader["date_of_employment"]), reader["role"].ToString());
+                                user.CardSerialNumber = reader["serial_number"].ToString();
                             }
                         }
                     }

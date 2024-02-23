@@ -8,6 +8,11 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ListView Name="LogList" ItemsSource="{Binding AccessLogs}" BorderBrush="Black">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="ListViewItem">
+					<Setter Property="HorizontalContentAlignment" Value="Center" />
+				</Style>
+			</ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <!-- Access point column -->
@@ -23,7 +28,7 @@
                     <GridViewColumn Header="Date">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding EventDate}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding EventDate, StringFormat=dd MMM yyyy HH:mm}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -75,7 +80,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
-
     </Grid>
 </UserControl>
