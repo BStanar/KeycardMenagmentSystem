@@ -38,6 +38,36 @@ namespace KeycardMenagmentSystem.Services
             return accessPoints;
         }
 
+        public async Task<List<AccessPoint>> GetEmployeeAccessPoint(Users user)
+        {
+            var accessPoints = new List<AccessPoint>();
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+                var query = @"
+            SELECT DISTINCT a.id, a.name, a.serial
+            FROM accesspoint a
+            JOIN accesspoint_keycard ak ON a.id = ak.accesspoint_id
+            JOIN keycard k ON ak.keycard_id = k.id
+            WHERE k.user_id = @userId";
+                using (var cmd = new MySqlCommand(query, connection))
+                {
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var accessPoint = new AccessPoint(
+                                Convert.ToInt32(reader["id"]),
+                                reader["name"].ToString(),
+                                reader["serial"].ToString()
+                            );
+                            accessPoints.Add(accessPoint);
+                        }
+                    }
+                }
+            }
+            return accessPoints;
+        }
 
         public async Task AddAccessPoint(AccessPoint accessPoint)
         {

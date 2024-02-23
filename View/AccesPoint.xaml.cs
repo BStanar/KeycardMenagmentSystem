@@ -28,7 +28,7 @@ namespace KeycardMenagmentSystem.View
         {
             InitializeComponent();
             this.DataContext = new AccessPointsViewModel();
-
+            this.DataContext = new EmployeeViewModel();
 
         }
 

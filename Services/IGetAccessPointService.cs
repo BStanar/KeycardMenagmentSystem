@@ -10,6 +10,7 @@ namespace KeycardMenagmentSystem.Services
     internal interface IGetAccessPointService
     {
         public Task<List<AccessPoint>> GetAccesPoints();
+        public Task<List<AccessPoint>> GetEmployeeAccessPoint(Users user);
         Task AddAccessPoint(AccessPoint accessPoint);
 
     }
